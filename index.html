@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#071f5b" />
+  <meta name="description" content="Acompanhamento em direto da Volta a Portugal à Vela 2026 — mapa, classificação na água e tempos corrigidos ORC/ANC." />
+  <title>Volta a Portugal à Vela 2026 — Live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+  <header class="topbar">
+    <div class="topbar__inner shell">
+      <a class="brand" href="#topo" aria-label="Volta a Portugal à Vela 2026">
+        <span class="brand__logo-wrap">
+          <img class="brand__logo" src="assets/logo-volta-portugal-2026.jpeg" alt="Logótipo Volta a Portugal à Vela 2026" />
+        </span>
+        <span class="brand__text">
+          <strong>Volta a Portugal à Vela</strong>
+          <small>Centro de acompanhamento 2026</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#direto" class="nav__link is-active">Direto</a>
+        <a href="#classificacao" class="nav__link">Classificação</a>
+        <a href="#etapas" class="nav__link">8 etapas</a>
+        <a href="#metodologia" class="nav__link">Metodologia</a>
+      </nav>
+
+      <button class="icon-button" id="openAdmin" type="button" aria-label="Abrir painel da organização">
+        <span aria-hidden="true">⚙</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="topo">
+      <div class="hero__glow hero__glow--one"></div>
+      <div class="hero__glow hero__glow--two"></div>
+      <div class="shell hero__grid">
+        <div class="hero__copy">
+          <div class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            Etapa 5 · In-Port Cascais → Lisboa
+          </div>
+          <h1>A regata em direto, <span>clara para todos.</span></h1>
+          <p>
+            Posição AIS, progresso no percurso, classificação na água e estimativa corrigida ORC/ANC,
+            numa única experiência preparada para público, equipas e organização.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#direto">Ver acompanhamento</a>
+            <a class="button button--ghost" href="#metodologia">Como é calculado</a>
+          </div>
+          <div class="hero__facts" aria-label="Resumo da etapa">
+            <div><strong>13:55</strong><span>Sinal de advertência</span></div>
+            <div><strong>3h30</strong><span>Limite do 1.º por classe</span></div>
+            <div><strong>90 min</strong><span>Janela após o 1.º</span></div>
+          </div>
+        </div>
+
+        <aside class="hero__card" aria-label="Estado do sistema">
+          <div class="hero__card-top">
+            <span class="status-pill status-pill--warning">Modo demonstração</span>
+            <span id="clock" class="mono">--:--:--</span>
+          </div>
+          <div class="stage-progress">
+            <div class="stage-progress__label">
+              <span>Volta 2026</span>
+              <strong>Etapa 5 de 8</strong>
+            </div>
+            <div class="progress-track"><span style="width:62.5%"></span></div>
+          </div>
+          <div class="hero__signal">
+            <div>
+              <small>Última atualização</small>
+              <strong id="lastUpdate">A aguardar dados</strong>
+            </div>
+            <div class="signal-bars" aria-label="Qualidade de dados demonstrativa">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <p class="hero__note">
+            A versão real deverá usar MMSI, API AIS autorizada e coordenadas oficiais das marcas.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell" id="direto">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">Acompanhamento da etapa</span>
+          <h2>Mapa de prova</h2>
+        </div>
+        <div class="segmented" role="group" aria-label="Modo de classificação">
+          <button class="segment is-active" data-view="water" type="button">Na água</button>
+          <button class="segment" data-view="corrected" type="button">Corrigida estimada</button>
+        </div>
+      </div>
+
+      <div class="live-layout">
+        <article class="map-card card">
+          <div class="map-card__toolbar">
+            <div>
+              <strong id="mapTitle">Cascais → Lisboa</strong>
+              <span>Traçado demonstrativo · substituir por coordenadas oficiais</span>
+            </div>
+            <div class="legend">
+              <span><i class="legend__dot legend__dot--orc"></i>ORC</span>
+              <span><i class="legend__dot legend__dot--anc"></i>ANC</span>
+            </div>
+          </div>
+
+          <div class="race-map" id="raceMap" role="img" aria-label="Mapa ilustrativo do percurso entre Cascais e Lisboa">
+            <svg class="race-map__svg" viewBox="0 0 900 520" aria-hidden="true">
+              <defs>
+                <linearGradient id="sea" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#07194d" />
+                  <stop offset="1" stop-color="#0b4d8d" />
+                </linearGradient>
+                <filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-opacity=".35" /></filter>
+                <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                  <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1" />
+                </pattern>
+              </defs>
+              <rect width="900" height="520" rx="28" fill="url(#sea)" />
+              <rect width="900" height="520" rx="28" fill="url(#grid)" />
+              <path class="coast" d="M742 0 C726 58 748 111 716 159 C684 208 646 236 650 294 C654 351 690 393 655 438 C630 470 593 487 572 520 L900 520 L900 0 Z" />
+              <path class="route-shadow" d="M135 393 C245 363 295 297 390 280 C510 258 544 212 636 151" />
+              <path class="route" d="M135 393 C245 363 295 297 390 280 C510 258 544 212 636 151" />
+              <g class="mark" transform="translate(135 393)">
+                <circle r="13" />
+                <circle r="4" class="mark__core" />
+                <text x="-22" y="34">Largada</text>
+              </g>
+              <g class="mark" transform="translate(390 280)">
+                <circle r="13" />
+                <circle r="4" class="mark__core" />
+                <text x="-33" y="34">Desmarque</text>
+              </g>
+              <g class="mark" transform="translate(636 151)">
+                <circle r="13" />
+                <circle r="4" class="mark__core" />
+                <text x="-23" y="34">Chegada</text>
+              </g>
+              <text x="92" y="448" class="place-label">CASCAIS</text>
+              <text x="643" y="110" class="place-label">LISBOA</text>
+              <g id="boatLayer"></g>
+            </svg>
+            <div class="map-watermark">DEMO AIS</div>
+          </div>
+
+          <div class="map-card__footer">
+            <span><strong>VHF 72</strong> Comissão de Regatas</span>
+            <span><strong>VHF 9</strong> Oficial de Chegada</span>
+            <span class="data-quality"><i></i> Dados simulados</span>
+          </div>
+        </article>
+
+        <aside class="leader-card card">
+          <div class="leader-card__head">
+            <div>
+              <span class="kicker">Ordem provisória</span>
+              <h3 id="leaderTitle">Posição na água</h3>
+            </div>
+            <button class="text-button" id="refreshDemo" type="button">Atualizar</button>
+          </div>
+          <div id="leaderList" class="leader-list" aria-live="polite"></div>
+          <a href="#classificacao" class="leader-card__more">Ver classificação completa <span>→</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="classificacao">
+      <div class="shell">
+        <div class="section-heading section-heading--stack-mobile">
+          <div>
+            <span class="kicker">Resultados provisórios</span>
+            <h2>Classificação em direto</h2>
+            <p class="section-intro">Separação por sistema de abono. A classificação oficial depende da Comissão de Regatas.</p>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filtrar classes">
+            <button class="filter-chip is-active" data-class="all" type="button">Todos</button>
+            <button class="filter-chip" data-class="ORC" type="button">ORC</button>
+            <button class="filter-chip" data-class="ANC" type="button">ANC</button>
+          </div>
+        </div>
+
+        <div class="table-card card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Pos.</th>
+                  <th scope="col">Barco</th>
+                  <th scope="col">Classe</th>
+                  <th scope="col">Progresso</th>
+                  <th scope="col">Velocidade</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Corrigido est.</th>
+                  <th scope="col">Dados</th>
+                </tr>
+              </thead>
+              <tbody id="rankingBody"></tbody>
+            </table>
+          </div>
+          <div class="table-note">
+            <span>ORC: tempo real × Time on Time / All Purpose</span>
+            <span>ANC: tempo real × Rating ANC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="etapas">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">Calendário competitivo</span>
+          <h2>As 8 etapas</h2>
+        </div>
+        <span class="muted">Estrutura configurável no ficheiro <code>src/app.js</code></span>
+      </div>
+      <div class="stage-grid" id="stageGrid"></div>
+    </section>
+
+    <section class="section section--dark" id="metodologia">
+      <div class="shell methodology-grid">
+        <div>
+          <span class="kicker kicker--light">Transparência do sistema</span>
+          <h2>O que é oficial e o que é estimado</h2>
+          <p>
+            O AIS permite acompanhar o movimento dos barcos, mas não substitui a validação da Comissão de Regatas.
+            O produto deve distinguir sempre posição recebida, cálculo automático, decisão manual e resultado oficial.
+          </p>
+        </div>
+        <div class="method-cards">
+          <article>
+            <span>01</span>
+            <h3>Posição na água</h3>
+            <p>Ordenação por marcas completadas e progresso na perna atual, nunca apenas por distância à chegada.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Tempo corrigido</h3>
+            <p>ORC usa ToT All Purpose; ANC usa o Rating ANC. Penalizações em tempo real entram antes do fator.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Controlo da organização</h3>
+            <p>Check-in, encurtamentos, desistências, penalizações e validação da chegada exigem painel administrativo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <div>
+        <strong>Volta a Portugal à Vela 2026</strong>
+        <span>Protótipo digital de acompanhamento em direto</span>
+      </div>
+      <div class="footer__meta">
+        <span>Concebido para 8 etapas</span>
+        <span>ORC · ANC · AIS</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="admin-dialog" id="adminDialog">
+    <form method="dialog" class="admin-panel">
+      <div class="admin-panel__head">
+        <div>
+          <span class="kicker">Organização</span>
+          <h2>Painel de controlo</h2>
+        </div>
+        <button class="icon-button icon-button--light" value="close" aria-label="Fechar painel">×</button>
+      </div>
+      <div class="admin-warning">
+        Demonstração visual. A versão de produção requer autenticação, auditoria e permissões por função.
+      </div>
+      <div class="admin-grid">
+        <label>
+          Estado da etapa
+          <select id="stageStatus">
+            <option>Em direto</option>
+            <option>Suspensa</option>
+            <option>Concluída</option>
+          </select>
+        </label>
+        <label>
+          Hora oficial de largada
+          <input type="time" value="14:00" />
+        </label>
+        <label>
+          Origem de dados
+          <select>
+            <option>Simulação</option>
+            <option disabled>MarineTraffic / Kpler AIS</option>
+          </select>
+        </label>
+        <label>
+          Frequência de atualização
+          <select>
+            <option>30 segundos</option>
+            <option>60 segundos</option>
+            <option>120 segundos</option>
+          </select>
+        </label>
+      </div>
+      <div class="admin-actions">
+        <button class="button button--ghost-dark" value="close">Cancelar</button>
+        <button class="button button--primary" id="simulateUpdate" value="close">Aplicar demonstração</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="src/app.js" defer></script>
+</body>
+</html>
