@@ -10,7 +10,7 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T16:06:00.000Z",
+    "syncedAt": "2026-10-17T16:14:00.000Z",
     "refreshMinutes": null,
     "manual": true,
     "basis": "Print validado da Sheet2"
@@ -278,9 +278,16 @@
       "key": "R6G2",
       "race": 6,
       "group": 2,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "key": "R1G3",
@@ -1124,6 +1131,57 @@
           "points": 6
         }
       ]
+    },
+    {
+      "key": "R6G2",
+      "race": 6,
+      "group": 2,
+      "finishOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 1,
+          "team": "Mário Drummond Borges / Mafalda Neto",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 2,
+          "team": "Vasco Soares / Matilde Boto",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 3,
+          "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 4,
+          "team": "João Ramada / Joana Dinis",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 5,
+          "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 6,
+          "team": "Manuel Caetano Mariano / Rui Pedro",
+          "points": 6
+        }
+      ]
     }
   ],
   "raceBoatMaps": {
@@ -1246,6 +1304,14 @@
       "4": "João Ramada / Joana Dinis",
       "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
       "6": "Manuel Caetano Mariano / Rui Pedro"
+    },
+    "R6G2": {
+      "1": "Mário Drummond Borges / Mafalda Neto",
+      "2": "Vasco Soares / Matilde Boto",
+      "3": "Hugo Correia Hakenhut / Henrique Teodoro",
+      "4": "João Ramada / Joana Dinis",
+      "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+      "6": "Manuel Caetano Mariano / Rui Pedro"
     }
   },
   "commonRaceNumbers": [
@@ -1312,7 +1378,8 @@
         "2": 2,
         "3": 1,
         "4": 3,
-        "5": 5
+        "5": 5,
+        "6": 2
       },
       "total": 8,
       "position": 3,
@@ -1333,7 +1400,8 @@
         "2": 1,
         "3": 3,
         "4": 4,
-        "5": 1
+        "5": 1,
+        "6": 1
       },
       "total": 9,
       "position": 4,
@@ -1376,7 +1444,8 @@
         "2": 4,
         "3": 2,
         "4": 1,
-        "5": 3
+        "5": 3,
+        "6": 4
       },
       "total": 10,
       "position": 6,
@@ -1437,7 +1506,8 @@
         "2": 3,
         "3": 4,
         "4": 2,
-        "5": 4
+        "5": 4,
+        "6": 6
       },
       "total": 13,
       "position": 9,
@@ -1564,7 +1634,8 @@
         "2": 5,
         "3": 5,
         "4": 5,
-        "5": 2
+        "5": 2,
+        "6": 5
       },
       "total": 21,
       "position": 15,
@@ -1585,7 +1656,8 @@
         "2": 6,
         "3": 6,
         "4": 6,
-        "5": 6
+        "5": 6,
+        "6": 3
       },
       "total": 23,
       "position": 16,
@@ -1743,7 +1815,8 @@
         2,
         3,
         4,
-        5
+        5,
+        6
       ],
       "standings": [
         {
@@ -1754,9 +1827,10 @@
             "2": 1,
             "3": 3,
             "4": 4,
-            "5": 1
+            "5": 1,
+            "6": 1
           },
-          "total": 10,
+          "total": 11,
           "position": 1,
           "tied": false
         },
@@ -1768,9 +1842,10 @@
             "2": 2,
             "3": 1,
             "4": 3,
-            "5": 5
+            "5": 5,
+            "6": 2
           },
-          "total": 13,
+          "total": 15,
           "position": 2,
           "tied": false
         },
@@ -1782,9 +1857,10 @@
             "2": 4,
             "3": 2,
             "4": 1,
-            "5": 3
+            "5": 3,
+            "6": 4
           },
-          "total": 13,
+          "total": 17,
           "position": 3,
           "tied": false
         },
@@ -1796,9 +1872,10 @@
             "2": 3,
             "3": 4,
             "4": 2,
-            "5": 4
+            "5": 4,
+            "6": 6
           },
-          "total": 17,
+          "total": 23,
           "position": 4,
           "tied": false
         },
@@ -1810,9 +1887,10 @@
             "2": 5,
             "3": 5,
             "4": 5,
-            "5": 2
+            "5": 2,
+            "6": 5
           },
-          "total": 23,
+          "total": 28,
           "position": 5,
           "tied": false
         },
@@ -1824,9 +1902,10 @@
             "2": 6,
             "3": 6,
             "4": 6,
-            "5": 6
+            "5": 6,
+            "6": 3
           },
-          "total": 29,
+          "total": 32,
           "position": 6,
           "tied": false
         }
