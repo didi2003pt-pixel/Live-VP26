@@ -6,6 +6,7 @@ const browser = await chromium.launch({ headless: true, args: ['--disable-dev-sh
 const context = await browser.newContext({
   viewport: { width: 1600, height: 1000 },
   locale: 'pt-PT',
+  permissions: ['clipboard-read', 'clipboard-write'],
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129 Safari/537.36'
 });
 const page = await context.newPage();
@@ -17,23 +18,31 @@ await page.waitForTimeout(12000);
 
 console.log('TITLE', await page.title());
 console.log('URL', page.url());
+console.log('FRAME_COUNT', page.frames().length);
 
-const bodyText = await page.locator('body').innerText().catch(()=> '');
-console.log('BODY_START');
-console.log(bodyText.slice(0, 25000));
-console.log('BODY_END');
-
-const roles = await page.locator('[role]').evaluateAll((els) => els.slice(0, 600).map((el) => ({
-  role: el.getAttribute('role'),
-  text: (el.innerText || el.textContent || '').trim().slice(0,200),
-  ariaRow: el.getAttribute('aria-rowindex'),
-  ariaCol: el.getAttribute('aria-colindex'),
-  ariaLabel: el.getAttribute('aria-label'),
-  title: el.getAttribute('title')
-})).filter(x => x.text || x.ariaLabel || x.title));
-console.log('ROLES_START');
-console.log(JSON.stringify(roles, null, 2).slice(0,50000));
-console.log('ROLES_END');
+let idx=0;
+for (const frame of page.frames()) {
+  let text='';
+  let roles=[];
+  try { text=(await frame.locator('body').innerText()).slice(0,12000); } catch {}
+  try {
+    roles=await frame.locator('[role]').evaluateAll((els)=>els.slice(0,800).map((el)=>({
+      role:el.getAttribute('role'),
+      text:(el.innerText||el.textContent||'').trim().slice(0,160),
+      label:el.getAttribute('aria-label'),
+      row:el.getAttribute('aria-rowindex'),
+      col:el.getAttribute('aria-colindex'),
+      title:el.getAttribute('title')
+    })).filter(x=>x.text||x.label||x.title));
+  } catch {}
+  console.log('FRAME', idx++, frame.url());
+  console.log('FRAME_TEXT_START');
+  console.log(text);
+  console.log('FRAME_TEXT_END');
+  console.log('FRAME_ROLES_START');
+  console.log(JSON.stringify(roles,null,2).slice(0,40000));
+  console.log('FRAME_ROLES_END');
+}
 
 await page.screenshot({ path: 'moura-2026/debug.png', fullPage: false });
 await browser.close();
