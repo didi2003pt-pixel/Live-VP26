@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#062d57">
+<title>Resultados — Moura / Alqueva 2026</title>
+<style>
+:root{
+  --navy:#062d57;--navy2:#0b416f;--cyan:#10a7d6;--gold:#f3b400;
+  --orange:#ed6a20;--green:#58a83d;--ink:#162333;--muted:#657487;
+  --line:#dce4eb;--soft:#f5f8fa;--paper:#fff;--screen:#edf2f6;--bronze:#b97949;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--screen)}
+body{
+  margin:0;min-width:320px;background:var(--screen);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;touch-action:manipulation}
+.topbar{
+  position:sticky;top:0;z-index:50;background:rgba(237,242,246,.94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(190,203,215,.75);
+}
+.topbar-inner{
+  width:min(1180px,100%);margin:auto;padding:max(8px,env(safe-area-inset-top)) 12px 8px;
+  display:flex;align-items:center;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+.action{
+  flex:0 0 auto;border:1px solid #cbd6df;background:#fff;color:var(--ink);
+  min-height:40px;padding:8px 11px;border-radius:10px;font-weight:760;font-size:12px;cursor:pointer;
+}
+.action.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.action.accent{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.connection{
+  margin-left:auto;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  font-size:11px;font-weight:800;color:#526274;padding:0 5px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#99a5b0}
+.connection.live .dot{background:#27a55f;box-shadow:0 0 0 4px rgba(39,165,95,.12)}
+.connection.warn .dot{background:#dc9823}
+main{padding:14px max(10px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom))}
+.sheet{
+  width:min(1180px,100%);margin:auto;background:var(--paper);border-radius:15px;overflow:hidden;
+  box-shadow:0 18px 45px rgba(22,42,60,.12);
+}
+.stripe{height:7px;background:linear-gradient(90deg,var(--navy) 0 55%,var(--cyan) 55% 74%,#c8d700 74% 83%,var(--orange) 83% 92%,var(--gold) 92%)}
+.inner{padding:18px 24px 15px}
+.brandrow{
+  display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:18px;
+  border-bottom:1px solid var(--line);padding-bottom:14px;
+}
+.org{
+  min-height:74px;display:flex;flex-direction:column;justify-content:center;
+  color:#66717c;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:750;
+}
+.org strong{display:block;color:var(--navy);font-size:15px;letter-spacing:0;text-transform:none;margin-top:3px}
+.org.right{text-align:right;align-items:flex-end}
+.event{text-align:center}
+.event .kicker{font-size:10px;color:var(--cyan);font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.event h1{margin:3px 0 1px;color:var(--navy);font-size:20px;line-height:1.12;font-weight:900}
+.event .stage{font-size:13px;font-weight:800;color:#344a5f}
+.meta{
+  padding:12px 0 10px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;
+}
+.badge{
+  display:inline-flex;align-items:center;min-height:28px;padding:5px 9px;border-radius:999px;
+  background:var(--soft);border:1px solid var(--line);font-size:10px;font-weight:800;color:#5d6b79;
+}
+.badge.live{color:#15713f;background:#eef9f3;border-color:#bfe4cf}
+.badge.provisional{color:#8a6411;background:#fff8e5;border-color:#eddaa0}
+.updated{margin-left:auto;font-size:10px;color:var(--muted)}
+.summary{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:4px 0 12px;
+}
+.stat{border:1px solid var(--line);background:#fbfcfd;border-radius:11px;padding:9px 10px}
+.stat small{display:block;color:var(--muted);font-size:8px;font-weight:850;text-transform:uppercase;letter-spacing:.07em}
+.stat strong{display:block;color:var(--navy);font-size:17px;line-height:1.2;margin-top:2px}
+.stat em{display:block;font-style:normal;color:#788594;font-size:9px;margin-top:1px}
+.notice{
+  display:none;margin:8px 0 11px;padding:9px 11px;border-radius:10px;
+  border:1px solid #efdda7;background:#fff9e8;color:#755a12;font-size:10px;font-weight:650;line-height:1.4;
+}
+.notice.show{display:block}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:3px;-webkit-overflow-scrolling:touch}
+.tab{
+  flex:0 0 auto;border:1px solid #cfd9e2;background:#fff;color:#526174;border-radius:9px;
+  padding:8px 11px;font-weight:820;font-size:11px;cursor:pointer;
+}
+.tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:11px 0 7px;
+}
+.section-head h2{margin:0;color:var(--navy);font-size:17px}
+.section-head p{margin:2px 0 0;color:var(--muted);font-size:9.5px}
+.section-tag{font-size:9px;font-weight:850;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11px}
+thead th{
+  background:var(--navy);color:#fff;padding:7px 5px;border-right:1px solid rgba(255,255,255,.13);
+  font-size:9px;text-transform:uppercase;letter-spacing:.045em;white-space:nowrap;
+}
+thead th:first-child{border-radius:8px 0 0 0}
+thead th:last-child{border-radius:0 8px 0 0;background:#031f3d;border-right:0}
+tbody td{height:27px;padding:4px 5px;border-bottom:1px solid var(--line);text-align:center;background:#fff}
+tbody tr:nth-child(even) td{background:#fbfcfd}
+tbody tr.rank1 td{background:#eef9fd}
+tbody tr.rank1 td:first-child{box-shadow:inset 4px 0 0 #d1a700}
+tbody tr.rank2 td:first-child{box-shadow:inset 4px 0 0 #aeb6bf}
+tbody tr.rank3 td:first-child{box-shadow:inset 4px 0 0 var(--bronze)}
+td.team{text-align:left;font-weight:680}
+td.total{font-weight:900;color:var(--navy);background:#f0f4f7}
+tbody tr:nth-child(even) td.total{background:#edf2f5}
+.score.excluded{color:#9ba5ae;font-style:italic}
+.pos{font-weight:900;color:var(--navy)}
+.group-pill{
+  display:inline-block;padding:2px 6px;border-radius:999px;font-size:8px;font-weight:850;white-space:nowrap;
+  background:#edf2f6;color:#546474;
+}
+.group-pill.g1{background:#fff4c8;color:#7b5b00}
+.group-pill.g2{background:#e6f5df;color:#39762a}
+.group-pill.g3{background:#e5f2ff;color:#276795}
+.mobile-list{display:none}
+.card{
+  border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px;margin-top:8px;
+  box-shadow:0 2px 8px rgba(25,44,62,.04);
+}
+.card.rank1{background:#eef9fd;border-color:#c5e8f1}
+.card-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px}
+.card-pos{
+  min-width:42px;height:34px;border-radius:8px;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px
+}
+.card-name{min-width:0;font-size:14px;font-weight:780;line-height:1.15}
+.card-sub{font-size:9px;color:var(--muted);margin-top:3px}
+.card-total{text-align:right}
+.card-total small{display:block;font-size:7.5px;color:var(--muted);font-weight:850;text-transform:uppercase}
+.card-total strong{font-size:19px;color:var(--navy)}
+.card-scores{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}
+.card-score{border:1px solid var(--line);border-radius:8px;background:#f8fafb;padding:5px;text-align:center}
+.card-score small{display:block;font-size:7px;color:var(--muted);font-weight:850;text-transform:uppercase}
+.card-score strong{font-size:14px;color:var(--navy)}
+.card-score.excluded strong{color:#9ba5ae;font-style:italic}
+.legend{margin-top:7px;color:#778492;font-size:8.5px;line-height:1.4}
+.footer{
+  margin-top:12px;padding-top:9px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:12px;color:#778492;font-size:8.5px;line-height:1.4
+}
+.error{
+  display:none;margin:12px 0;padding:13px;border:1px solid #efc1c5;background:#fff2f3;color:#922b35;border-radius:11px;font-size:11px
+}
+.error.show{display:block}
+.loading{padding:30px;text-align:center;color:var(--muted);font-size:12px}
+@page{size:A4 landscape;margin:8mm}
+@media print{
+  html,body{background:#fff!important}
+  .topbar{display:none!important}
+  main{padding:0!important}
+  .sheet{width:100%!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important}
+  .stripe{height:4px}
+  .inner{padding:8px 10px 5px}
+  .brandrow{padding-bottom:7px;gap:10px}
+  .org{min-height:48px;font-size:7px}.org strong{font-size:11px}
+  .event .kicker{font-size:7px}.event h1{font-size:14px}.event .stage{font-size:9px}
+  .meta{padding:6px 0 5px}.badge{min-height:19px;padding:2px 6px;font-size:7px}.updated{font-size:7px}
+  .summary{gap:5px;margin:2px 0 6px}.stat{padding:4px 6px}.stat small{font-size:6px}.stat strong{font-size:11px}.stat em{font-size:6px}
+  .tabs{display:none}
+  .notice{padding:5px 7px;margin:4px 0 6px;font-size:7px}
+  .section-head{margin:6px 0 4px}.section-head h2{font-size:12px}.section-head p,.section-tag{font-size:6.5px}
+  .mobile-list{display:none!important}.table-wrap{display:block!important;overflow:visible}
+  table{font-size:8.3px}thead th{padding:4px 2px;font-size:6.5px}tbody td{height:19px;padding:2px 3px}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  .footer,.legend{font-size:6.4px;margin-top:4px;padding-top:4px}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+@media(max-width:720px){
+  main{padding:8px max(8px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom))}
+  .sheet{border-radius:11px}.inner{padding:12px}
+  .topbar-inner{padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}
+  .connection{margin-left:0}
+  .brandrow{grid-template-columns:1fr 1fr;grid-template-areas:"event event" "moura fpv";gap:7px}
+  .org{min-height:46px;font-size:8px}.org strong{font-size:11px}
+  .org.left{grid-area:moura}.org.right{grid-area:fpv}
+  .event{grid-area:event}.event h1{font-size:17px}.event .stage{font-size:11px}
+  .meta{padding:9px 0 7px}.updated{width:100%;margin-left:0}
+  .summary{grid-template-columns:1fr 1fr}
+  .stat strong{font-size:15px}
+  .section-head{align-items:flex-start}.section-tag{text-align:right}
+  .table-wrap{display:none}.mobile-list{display:block}
+  .footer{flex-direction:column;gap:3px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <button class="action primary" id="refreshBtn">↻ Atualizar</button>
+    <button class="action accent" id="pdfBtn">PDF / Imprimir</button>
+    <div class="connection" id="connection"><span class="dot"></span><span id="connectionText">A ligar…</span></div>
+  </div>
+</div>
+
+<main>
+  <section class="sheet">
+    <div class="stripe"></div>
+    <div class="inner">
+      <header class="brandrow">
+        <div class="org left">Apoio institucional<strong>Câmara Municipal de Moura</strong></div>
+        <div class="event">
+          <div class="kicker">Resultados em atualização automática</div>
+          <h1>Circuito Nacional de Vela em Águas Interiores 2026</h1>
+          <div class="stage">4.ª Etapa · Moura / Alqueva · K420</div>
+        </div>
+        <div class="org right">Autoridade organizadora<strong>Federação Portuguesa de Vela</strong></div>
+      </header>
+
+      <div class="meta">
+        <span class="badge live">● AO VIVO</span>
+        <span class="badge provisional">Resultados provisórios</span>
+        <span class="badge">17–18 outubro 2026</span>
+        <span class="updated" id="updated">A carregar dados…</span>
+      </div>
+
+      <div class="summary" id="summary"></div>
+      <div class="notice" id="notice"></div>
+      <div class="error" id="error"></div>
+
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-view="overall">Classificação Geral</button>
+        <button class="tab" data-view="g1">Grupo 1</button>
+        <button class="tab" data-view="g2">Grupo 2</button>
+        <button class="tab" data-view="g3">Grupo 3</button>
+      </nav>
+
+      <div id="content"><div class="loading">A carregar classificação…</div></div>
+
+      <footer class="footer">
+        <div>Circuito Nacional de Vela em Águas Interiores · 4.ª Etapa · Moura / Alqueva</div>
+        <div>Dados lidos automaticamente do ficheiro oficial · original não é alterado</div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+const DATA_URL='https://raw.githubusercontent.com/didi2003pt-pixel/Live-VP26/main/moura-2026/data.json';
+const CACHE_KEY='moura-live-data-v1';
+let DATA=null;
+let currentView='overall';
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ord=(p,t)=>p==null?'—':p+'.º'+(t?'=':'');
+const groupPill=g=>g?'<span class="group-pill g'+g+'">Grupo '+g+'</span>':'—';
+
+function fmtTime(iso){
+  if(!iso)return '—';
+  try{return new Intl.DateTimeFormat('pt-PT',{timeZone:'Europe/Lisbon',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date(iso))}
+  catch{return iso}
+}
+function setConnection(mode,text){
+  const el=document.getElementById('connection');
+  el.className='connection '+mode;
+  document.getElementById('connectionText').textContent=text;
+}
+function completedFor(g){return DATA?.groups?.[String(g)]?.completedRaces?.length||0}
+function maxRace(){return Math.max(6,Number(DATA?.maxRace)||6)}
+
+function renderSummary(){
+  const common=DATA.commonRaceNumbers||[];
+  const pending=DATA.pending||[];
+  document.getElementById('summary').innerHTML=[
+    ['Geral',common.length+' regata'+(common.length===1?'':'s'),'contam em todos os grupos'],
+    ['Grupo 1',completedFor(1)+' concluída'+(completedFor(1)===1?'':'s'),'6 equipas'],
+    ['Grupo 2',completedFor(2)+' concluída'+(completedFor(2)===1?'':'s'),'6 equipas'],
+    ['Grupo 3',completedFor(3)+' concluída'+(completedFor(3)===1?'':'s'),'6 equipas']
+  ].map(([a,b,c])=>'<div class="stat"><small>'+a+'</small><strong>'+b+'</strong><em>'+c+'</em></div>').join('');
+
+  const notice=document.getElementById('notice');
+  let messages=[];
+  if(pending.length) messages.push(pending.map(p=>p.key+' em preenchimento ('+p.entered+'/6)').join(' · '));
+  const next=(common.length?Math.max(...common):0)+1;
+  const completedGroups=[1,2,3].filter(g=>(DATA.groups?.[String(g)]?.completedRaces||[]).includes(next));
+  if(completedGroups.length && completedGroups.length<3){
+    const missing=[1,2,3].filter(g=>!completedGroups.includes(g));
+    messages.push('A Regata '+next+' já está concluída no'+(completedGroups.length>1?'s grupos ':' grupo ')+completedGroups.join(', ')+' mas só entrará no TOTAL geral quando estiver concluída também no'+(missing.length>1?'s grupos ':' grupo ')+missing.join(', ')+'.');
+  }
+  if(messages.length){notice.textContent=messages.join(' ');notice.classList.add('show')}
+  else{notice.classList.remove('show');notice.textContent=''}
+}
+
+function scoreCell(row,r,overall){
+  const value=overall?(row.allScores?.[String(r)]):row.scores?.[String(r)];
+  if(value==null)return '<span class="score">—</span>';
+  const excluded=overall && !(DATA.commonRaceNumbers||[]).includes(r);
+  return '<span class="score '+(excluded?'excluded':'')+'">'+esc(value)+(excluded?'*':'')+'</span>';
+}
+function tableHTML(rows,overall,group){
+  const races=Array.from({length:maxRace()},(_,i)=>i+1);
+  const head=['Pos.','Equipa'].concat(overall?['Grupo']:['Barco']).concat(races.map(r=>'R'+r)).concat(['Total']);
+  const body=rows.map(row=>{
+    const cls=row.position===1?'rank1':row.position===2?'rank2':row.position===3?'rank3':'';
+    const meta=overall?groupPill(row.group):('Barco '+(row.boat??'—'));
+    return '<tr class="'+cls+'">'+
+      '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+      '<td class="team">'+esc(row.name)+'</td>'+
+      '<td>'+meta+'</td>'+
+      races.map(r=>'<td>'+scoreCell(row,r,overall)+'</td>').join('')+
+      '<td class="total">'+(row.total??'—')+'</td>'+
+    '</tr>';
+  }).join('');
+  return '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>';
+}
+function cardsHTML(rows,overall){
+  const races=Array.from({length:maxRace()},(_,i)=>i+1);
+  return '<div class="mobile-list">'+rows.map(row=>{
+    const cls=row.position===1?'rank1':'';
+    const sub=overall?('Grupo '+(row.group??'—')+' · Barco '+(row.boat??'—')):('Barco '+(row.boat??'—'));
+    return '<article class="card '+cls+'"><div class="card-head">'+
+      '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">'+sub+'</div></div>'+
+      '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
+      '</div><div class="card-scores">'+
+      races.map(r=>{
+        const val=overall?row.allScores?.[String(r)]:row.scores?.[String(r)];
+        const excluded=overall&&val!=null&&!(DATA.commonRaceNumbers||[]).includes(r);
+        return '<div class="card-score '+(excluded?'excluded':'')+'"><small>R'+r+'</small><strong>'+(val??'—')+(excluded?'*':'')+'</strong></div>';
+      }).join('')+'</div></article>';
+  }).join('')+'</div>';
+}
+function render(){
+  if(!DATA)return;
+  renderSummary();
+  document.getElementById('updated').textContent='Última leitura do Excel: '+fmtTime(DATA.source?.syncedAt);
+  const content=document.getElementById('content');
+
+  let rows=[],title='',subtitle='',overall=false,group=null;
+  if(currentView==='overall'){
+    rows=DATA.overall||[];title='Classificação Geral';overall=true;
+    const counted=DATA.commonRaceNumbers||[];
+    subtitle=counted.length?'TOTAL: '+counted.map(r=>'R'+r).join(' + ')+' (regatas concluídas nos 3 grupos)':'A aguardar uma regata completa nos três grupos';
+  }else{
+    group=Number(currentView.slice(1));
+    rows=DATA.groups?.[String(group)]?.standings||[];
+    title='Grupo '+group;
+    const done=DATA.groups?.[String(group)]?.completedRaces||[];
+    subtitle=done.length?'TOTAL: '+done.map(r=>'R'+r).join(' + '):'A aguardar resultados completos';
+  }
+  const tag=overall?'Classificação transversal':'Classificação do grupo';
+  content.innerHTML='<div class="section-head"><div><h2>'+title+'</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
+    tableHTML(rows,overall,group)+cardsHTML(rows,overall)+
+    (overall&&rows.some(r=>Object.keys(r.allScores||{}).some(k=>!(DATA.commonRaceNumbers||[]).includes(Number(k))))?
+      '<div class="legend">* Resultado já concluído no respetivo grupo, mas ainda fora do TOTAL geral até a mesma regata estar completa nos três grupos.</div>':'');
+}
+async function loadData(manual=false){
+  if(manual)setConnection('','A atualizar…');
+  try{
+    const res=await fetch(DATA_URL+'?t='+Date.now(),{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const next=await res.json();
+    if(!next?.teams||!next?.source)throw new Error('Dados inválidos');
+    DATA=next;
+    localStorage.setItem(CACHE_KEY,JSON.stringify(next));
+    setConnection('live','Ligação ativa · atualização ~5 min');
+    document.getElementById('error').classList.remove('show');
+    render();
+  }catch(err){
+    let cached=null;
+    try{cached=JSON.parse(localStorage.getItem(CACHE_KEY)||'null')}catch{}
+    if(cached){
+      DATA=cached;setConnection('warn','A mostrar última leitura guardada');render();
+    }else{
+      setConnection('warn','Sem ligação');
+      const el=document.getElementById('error');el.textContent='Não foi possível carregar os resultados neste momento. Tenta novamente dentro de alguns segundos.';el.classList.add('show');
+      document.getElementById('content').innerHTML='';
+    }
+  }
+}
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('[data-view]');if(!b)return;
+  currentView=b.dataset.view;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
+  render();
+});
+document.getElementById('refreshBtn').addEventListener('click',()=>loadData(true));
+document.getElementById('pdfBtn').addEventListener('click',()=>window.print());
+loadData();
+setInterval(()=>loadData(false),30000);
+</script>
+</body>
+</html>
