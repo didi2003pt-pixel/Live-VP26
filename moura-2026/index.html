@@ -379,14 +379,35 @@ function qualificationOverview(){
     '<div class="legend">A linha verde marca a zona de apuramento (1.º–4.º). Os resultados mantêm-se provisórios enquanto a fase e eventuais protestos não estiverem encerrados.</div>';
 }
 
+function repescagemView(){
+  const phase=DATA.phases?.repescagem;
+  if(!phase)return '<div class="phase-card"><h3>Repescagem</h3><p>A aguardar informação oficial.</p></div>';
+  const races=[1,2,3];
+  const rows=phase.standings||[];
+  const head=['Pos.','Equipa','Barco','R1','R2','R3','Total'];
+  const body=rows.map(row=>'<tr>'+
+    '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+    '<td class="team">'+esc(row.name)+'</td>'+
+    '<td>Barco '+(row.boat??'—')+'</td>'+
+    races.map(r=>'<td>'+(row.scores?.[String(r)]??'—')+'</td>').join('')+
+    '<td class="total">'+(row.total??'—')+'</td>'+
+  '</tr>').join('');
+  const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
+    '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+    '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
+    '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
+    '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
+  return '<div class="section-head"><div><h2>Repescagem</h2><p>3 regatas · as 3 melhores equipas avançam para a semifinal · sem descartes</p></div><div class="section-tag">Composição oficial publicada</div></div>'+
+    '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
+    cards+
+    '<div class="legend">Só serão publicados aqui resultados da repescagem quando forem recebidos e validados. A composição/seeding das semifinais permanece oculta até autorização da Comissão de Regatas.</div>';
+}
+
 function phasePlaceholder(view){
-  if(view==='rep'){
-    return '<div class="phase-card"><h3>Repescagem</h3><p><strong>A aguardar início.</strong> A repescagem é composta por 3 regatas e apura as 3 melhores equipas para a semifinal.</p></div>';
-  }
   if(view==='semi'){
-    return '<div class="phase-card"><h3>Semifinais</h3><p><strong>A aguardar início.</strong> As equipas apuradas serão divididas em 3 grupos. Cada grupo realiza 4 regatas e as 2 melhores equipas de cada grupo avançam para a Final.</p></div>';
+    return '<div class="phase-card"><h3>Semifinais</h3><p><strong>Não publicado.</strong> A composição e o seeding das semifinais não serão mostrados nesta página até autorização da Comissão de Regatas.</p></div>';
   }
-  return '<div class="phase-card"><h3>Final</h3><p><strong>A aguardar início.</strong> A primeira equipa a atingir duas vitórias vence a prova. Os restantes resultados da fase são calculados por pontuação baixa, sem descartes.</p></div>';
+  return '<div class="phase-card"><h3>Final</h3><p><strong>Formato preparado.</strong> A primeira equipa a atingir duas vitórias vence a prova. Os restantes resultados da fase são calculados por pontuação baixa, sem descartes. Os participantes só serão publicados quando estiverem oficialmente definidos.</p></div>';
 }
 
 function render(){
@@ -399,7 +420,11 @@ function render(){
     content.innerHTML=qualificationOverview();
     return;
   }
-  if(['rep','semi','final'].includes(currentView)){
+  if(currentView==='rep'){
+    content.innerHTML=repescagemView();
+    return;
+  }
+  if(['semi','final'].includes(currentView)){
     content.innerHTML=phasePlaceholder(currentView);
     return;
   }
