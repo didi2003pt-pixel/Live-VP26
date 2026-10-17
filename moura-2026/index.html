@@ -144,6 +144,29 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
 .card-score strong{font-size:14px;color:var(--navy)}
 .card-score.excluded strong{color:#9ba5ae;font-style:italic}
 .legend{margin-top:7px;color:#778492;font-size:8.5px;line-height:1.4}
+.qual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.qual-panel{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.qual-panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 10px;background:#f7f9fb;border-bottom:1px solid var(--line)}
+.qual-panel-head strong{color:var(--navy);font-size:13px}
+.qual-panel-head span{font-size:8px;font-weight:850;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.qual-row{display:grid;grid-template-columns:36px 1fr auto;gap:7px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line)}
+.qual-row:last-child{border-bottom:0}
+.qual-row.cut{border-bottom:3px solid #57a978}
+.qual-row.in-zone{background:#f3faf6}
+.qual-pos{font-size:11px;font-weight:900;color:var(--navy)}
+.qual-name{font-size:10px;font-weight:720;line-height:1.2}
+.qual-total{text-align:right;font-size:15px;font-weight:900;color:var(--navy)}
+.qual-total small{display:block;font-size:7px;color:var(--muted);text-transform:uppercase}
+.zone-badge{display:inline-block;margin-top:3px;padding:2px 5px;border-radius:999px;background:#e5f5eb;color:#287446;font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.04em}
+.phase-card{margin-top:12px;border:1px dashed #b9c7d3;border-radius:13px;padding:18px;background:#fafcfd;text-align:center}
+.phase-card h3{margin:0 0 5px;color:var(--navy);font-size:17px}
+.phase-card p{margin:0 auto;max-width:660px;color:var(--muted);font-size:10.5px;line-height:1.5}
+.phase-card strong{color:var(--ink)}
+tbody tr.cutoff td{border-bottom:3px solid #57a978}
+tbody tr.zone td{background:#f4faf6}
+tbody tr.zone:nth-child(even) td{background:#eef8f2}
+.card.zone{border-color:#b8ddc7;background:#f4faf6}
+.card-zone{display:inline-block;margin-top:4px;padding:2px 6px;border-radius:999px;background:#dff1e6;color:#287446;font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.04em}
 .footer{
   margin-top:12px;padding-top:9px;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;gap:12px;color:#778492;font-size:8.5px;line-height:1.4
@@ -190,6 +213,7 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
   .section-head{align-items:flex-start}.section-tag{text-align:right}
   .table-wrap{display:none}.mobile-list{display:block}
   .footer{flex-direction:column;gap:3px}
+  .qual-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -217,8 +241,10 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
       </header>
 
       <div class="meta">
-        <span class="badge live">● AO VIVO</span>
-        <span class="badge provisional">Resultados provisórios</span>
+        <span class="badge live">● RESULTADOS</span>
+        <span class="badge provisional">Provisórios</span>
+        <span class="badge">Fase: Qualificação</span>
+        <span class="badge">Sem descartes</span>
         <span class="badge">17–18 outubro 2026</span>
         <span class="updated" id="updated">A carregar dados…</span>
       </div>
@@ -228,10 +254,13 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
       <div class="error" id="error"></div>
 
       <nav class="tabs" id="tabs">
-        <button class="tab active" data-view="overall">Classificação Geral</button>
+        <button class="tab active" data-view="qual">Qualificação</button>
         <button class="tab" data-view="g1">Grupo 1</button>
         <button class="tab" data-view="g2">Grupo 2</button>
         <button class="tab" data-view="g3">Grupo 3</button>
+        <button class="tab" data-view="rep">Repescagem</button>
+        <button class="tab" data-view="semi">Semifinais</button>
+        <button class="tab" data-view="final">Final</button>
       </nav>
 
       <div id="content"><div class="loading">A carregar classificação…</div></div>
@@ -248,7 +277,7 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
 const DATA_URL='./data.json';
 const CACHE_KEY='moura-live-data-v1';
 let DATA=null;
-let currentView='overall';
+let currentView='qual';
 
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ord=(p,t)=>p==null?'—':p+'.º'+(t?'=':'');
@@ -268,91 +297,125 @@ function completedFor(g){return DATA?.groups?.[String(g)]?.completedRaces?.lengt
 function maxRace(){return Math.max(6,Number(DATA?.maxRace)||6)}
 
 function renderSummary(){
-  const common=DATA.commonRaceNumbers||[];
   const pending=DATA.pending||[];
   document.getElementById('summary').innerHTML=[
-    ['Geral',common.length+' regata'+(common.length===1?'':'s'),'contam em todos os grupos'],
-    ['Grupo 1',completedFor(1)+' concluída'+(completedFor(1)===1?'':'s'),'6 equipas'],
-    ['Grupo 2',completedFor(2)+' concluída'+(completedFor(2)===1?'':'s'),'6 equipas'],
-    ['Grupo 3',completedFor(3)+' concluída'+(completedFor(3)===1?'':'s'),'6 equipas']
+    ['Qualificação','3 grupos','4 melhores de cada grupo avançam'],
+    ['Grupo 1',completedFor(1)+'/6','regatas disputadas'],
+    ['Grupo 2',completedFor(2)+'/6','regatas disputadas'],
+    ['Grupo 3',completedFor(3)+'/6','regatas disputadas']
   ].map(([a,b,c])=>'<div class="stat"><small>'+a+'</small><strong>'+b+'</strong><em>'+c+'</em></div>').join('');
 
   const notice=document.getElementById('notice');
   let messages=[];
   if(pending.length) messages.push(pending.map(p=>p.key+' em preenchimento ('+p.entered+'/6)').join(' · '));
-  const next=(common.length?Math.max(...common):0)+1;
-  const completedGroups=[1,2,3].filter(g=>(DATA.groups?.[String(g)]?.completedRaces||[]).includes(next));
-  if(completedGroups.length && completedGroups.length<3){
-    const missing=[1,2,3].filter(g=>!completedGroups.includes(g));
-    messages.push('A Regata '+next+' já está concluída no'+(completedGroups.length>1?'s grupos ':' grupo ')+completedGroups.join(', ')+' mas só entrará no TOTAL geral quando estiver concluída também no'+(missing.length>1?'s grupos ':' grupo ')+missing.join(', ')+'.');
+  const incomplete=[1,2,3].filter(g=>completedFor(g)<6);
+  if(incomplete.length){
+    messages.push('Qualificação em curso: '+incomplete.map(g=>'Grupo '+g+' com '+completedFor(g)+'/6').join(' · ')+'.');
+  }else{
+    messages.push('Qualificação completa nos três grupos.');
   }
-  if(messages.length){notice.textContent=messages.join(' ');notice.classList.add('show')}
-  else{notice.classList.remove('show');notice.textContent=''}
+  notice.textContent=messages.join(' ');
+  notice.classList.add('show');
 }
 
-function scoreCell(row,r,overall){
-  const value=overall?(row.allScores?.[String(r)]):row.scores?.[String(r)];
-  if(value==null)return '<span class="score">—</span>';
-  const excluded=overall && !(DATA.commonRaceNumbers||[]).includes(r);
-  return '<span class="score '+(excluded?'excluded':'')+'">'+esc(value)+(excluded?'*':'')+'</span>';
+function scoreCell(row,r){
+  const value=row.scores?.[String(r)];
+  return value==null?'<span class="score">—</span>':'<span class="score">'+esc(value)+'</span>';
 }
-function tableHTML(rows,overall,group){
-  const races=Array.from({length:maxRace()},(_,i)=>i+1);
-  const head=['Pos.','Equipa'].concat(overall?['Grupo']:['Barco']).concat(races.map(r=>'R'+r)).concat(['Total']);
+
+function tableHTML(rows,group){
+  const races=Array.from({length:6},(_,i)=>i+1);
+  const head=['Pos.','Equipa','Barco'].concat(races.map(r=>'R'+r)).concat(['Total']);
   const body=rows.map(row=>{
-    const cls=row.position===1?'rank1':row.position===2?'rank2':row.position===3?'rank3':'';
-    const meta=overall?groupPill(row.group):('Barco '+(row.boat??'—'));
+    const zone=row.position!=null && row.position<=4;
+    const cls=[
+      row.position===1?'rank1':row.position===2?'rank2':row.position===3?'rank3':'',
+      zone?'zone':'',
+      row.position===4?'cutoff':''
+    ].filter(Boolean).join(' ');
     return '<tr class="'+cls+'">'+
       '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
-      '<td class="team">'+esc(row.name)+'</td>'+
-      '<td>'+meta+'</td>'+
-      races.map(r=>'<td>'+scoreCell(row,r,overall)+'</td>').join('')+
+      '<td class="team">'+esc(row.name)+(zone?'<span class="zone-badge">Top 4</span>':'')+'</td>'+
+      '<td>Barco '+(row.boat??'—')+'</td>'+
+      races.map(r=>'<td>'+scoreCell(row,r)+'</td>').join('')+
       '<td class="total">'+(row.total??'—')+'</td>'+
     '</tr>';
   }).join('');
   return '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>';
 }
-function cardsHTML(rows,overall){
-  const races=Array.from({length:maxRace()},(_,i)=>i+1);
+
+function cardsHTML(rows){
+  const races=Array.from({length:6},(_,i)=>i+1);
   return '<div class="mobile-list">'+rows.map(row=>{
-    const cls=row.position===1?'rank1':'';
-    const sub=overall?('Grupo '+(row.group??'—')+' · Barco '+(row.boat??'—')):('Barco '+(row.boat??'—'));
+    const zone=row.position!=null && row.position<=4;
+    const cls=(row.position===1?'rank1 ':'')+(zone?'zone':'');
     return '<article class="card '+cls+'"><div class="card-head">'+
       '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
-      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">'+sub+'</div></div>'+
+      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div>'+(zone?'<span class="card-zone">Top 4 · zona de apuramento</span>':'')+'</div>'+
       '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
       '</div><div class="card-scores">'+
-      races.map(r=>{
-        const val=overall?row.allScores?.[String(r)]:row.scores?.[String(r)];
-        const excluded=overall&&val!=null&&!(DATA.commonRaceNumbers||[]).includes(r);
-        return '<div class="card-score '+(excluded?'excluded':'')+'"><small>R'+r+'</small><strong>'+(val??'—')+(excluded?'*':'')+'</strong></div>';
-      }).join('')+'</div></article>';
+      races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+
+      '</div></article>';
   }).join('')+'</div>';
 }
+
+function qualificationOverview(){
+  const panels=[1,2,3].map(group=>{
+    const rows=DATA.groups?.[String(group)]?.standings||[];
+    const done=DATA.groups?.[String(group)]?.completedRaces||[];
+    return '<section class="qual-panel"><div class="qual-panel-head"><strong>Grupo '+group+'</strong><span>'+done.length+'/6 regatas</span></div>'+
+      rows.map(row=>{
+        const zone=row.position!=null&&row.position<=4;
+        return '<div class="qual-row '+(zone?'in-zone ':'')+(row.position===4?'cut':'')+'">'+
+          '<div class="qual-pos">'+ord(row.position,row.tied)+'</div>'+
+          '<div class="qual-name">'+esc(row.name)+(zone?'<div class="zone-badge">Top 4</div>':'')+'</div>'+
+          '<div class="qual-total"><small>Total</small>'+(row.total??'—')+'</div>'+
+        '</div>';
+      }).join('')+'</section>';
+  }).join('');
+
+  return '<div class="section-head"><div><h2>Fase de Qualificação</h2><p>Cada grupo disputa 6 regatas. A pontuação é a soma de todas as regatas disputadas, sem descartes.</p></div><div class="section-tag">4 melhores de cada grupo → Semifinais</div></div>'+
+    '<div class="qual-grid">'+panels+'</div>'+
+    '<div class="legend">A linha verde marca a zona de apuramento (1.º–4.º). Os resultados mantêm-se provisórios enquanto a fase e eventuais protestos não estiverem encerrados.</div>';
+}
+
+function phasePlaceholder(view){
+  if(view==='rep'){
+    return '<div class="phase-card"><h3>Repescagem</h3><p><strong>A aguardar início.</strong> A repescagem é composta por 3 regatas e apura as 3 melhores equipas para a semifinal.</p></div>';
+  }
+  if(view==='semi'){
+    return '<div class="phase-card"><h3>Semifinais</h3><p><strong>A aguardar início.</strong> As equipas apuradas serão divididas em 3 grupos. Cada grupo realiza 4 regatas e as 2 melhores equipas de cada grupo avançam para a Final.</p></div>';
+  }
+  return '<div class="phase-card"><h3>Final</h3><p><strong>A aguardar início.</strong> A primeira equipa a atingir duas vitórias vence a prova. Os restantes resultados da fase são calculados por pontuação baixa, sem descartes.</p></div>';
+}
+
 function render(){
   if(!DATA)return;
   renderSummary();
   document.getElementById('updated').textContent='Última atualização validada: '+fmtTime(DATA.source?.syncedAt);
   const content=document.getElementById('content');
 
-  let rows=[],title='',subtitle='',overall=false,group=null;
-  if(currentView==='overall'){
-    rows=DATA.overall||[];title='Classificação Geral';overall=true;
-    const counted=DATA.commonRaceNumbers||[];
-    subtitle=counted.length?'TOTAL: '+counted.map(r=>'R'+r).join(' + ')+' (regatas concluídas nos 3 grupos)':'A aguardar uma regata completa nos três grupos';
-  }else{
-    group=Number(currentView.slice(1));
-    rows=DATA.groups?.[String(group)]?.standings||[];
-    title='Grupo '+group;
-    const done=DATA.groups?.[String(group)]?.completedRaces||[];
-    subtitle=done.length?'TOTAL: '+done.map(r=>'R'+r).join(' + '):'A aguardar resultados completos';
+  if(currentView==='qual'){
+    content.innerHTML=qualificationOverview();
+    return;
   }
-  const tag=overall?'Classificação transversal':'Classificação do grupo';
-  content.innerHTML='<div class="section-head"><div><h2>'+title+'</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
-    tableHTML(rows,overall,group)+cardsHTML(rows,overall)+
-    (overall&&rows.some(r=>Object.keys(r.allScores||{}).some(k=>!(DATA.commonRaceNumbers||[]).includes(Number(k))))?
-      '<div class="legend">* Resultado já concluído no respetivo grupo, mas ainda fora do TOTAL geral até a mesma regata estar completa nos três grupos.</div>':'');
+  if(['rep','semi','final'].includes(currentView)){
+    content.innerHTML=phasePlaceholder(currentView);
+    return;
+  }
+
+  const group=Number(currentView.slice(1));
+  const rows=DATA.groups?.[String(group)]?.standings||[];
+  const done=DATA.groups?.[String(group)]?.completedRaces||[];
+  const complete=done.length>=6;
+  const subtitle=(done.length?('TOTAL = '+done.map(r=>'R'+r).join(' + ')):'A aguardar resultados')+' · sem descartes';
+  const tag=complete?'6/6 concluídas · Top 4 em zona de apuramento':done.length+'/6 regatas · classificação provisória';
+
+  content.innerHTML='<div class="section-head"><div><h2>Qualificação · Grupo '+group+'</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
+    tableHTML(rows,group)+cardsHTML(rows)+
+    '<div class="legend">Os 4 primeiros lugares do grupo constituem a zona de apuramento direto para as semifinais. Em caso de empate aplica-se a RRV A8.</div>';
 }
+
 async function loadData(manual=false){
   if(manual)setConnection('','A atualizar…');
   try{
