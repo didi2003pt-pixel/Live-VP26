@@ -1,6 +1,5 @@
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 
 const SOURCE_URL = 'https://1drv.ms/x/c/b29a7352ce375c54/IQAVdpxYbazkTKu9A8B_1RULAfOdFQSSfz8JNN92trJyJm0?e=IiO5hF';
 const DATA_PATH = 'moura-2026/data.json';
@@ -277,19 +276,7 @@ function buildData(sheet1Text,sheet2Text,previous) {
 
 function publish(data) {
   writeFileSync(DATA_PATH, JSON.stringify(data,null,2)+'\n','utf8');
-  execFileSync('git',['config','user.name','github-actions[bot]']);
-  execFileSync('git',['config','user.email','41898282+github-actions[bot]@users.noreply.github.com']);
-  execFileSync('git',['add',DATA_PATH]);
-
-  try {
-    execFileSync('git',['diff','--cached','--quiet']);
-    console.log('No published-data change.');
-    return;
-  } catch {}
-
-  execFileSync('git',['commit','-m','Update Moura live results [skip ci]'],{stdio:'inherit'});
-  execFileSync('git',['push'],{stdio:'inherit'});
-  console.log('Published', DATA_PATH);
+  console.log('Prepared', DATA_PATH);
 }
 
 try {
