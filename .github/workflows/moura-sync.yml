@@ -1,0 +1,36 @@
+name: Moura Excel Sync
+
+on:
+  push:
+    paths:
+      - 'moura-2026/**'
+      - '.github/workflows/moura-sync.yml'
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+      - name: Read Excel Online
+        run: node moura-2026/sync.mjs
+      - name: Upload debug screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: moura-debug
+          path: moura-2026/debug.png
+          if-no-files-found: ignore
