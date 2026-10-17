@@ -17,28 +17,24 @@ await page.waitForTimeout(12000);
 const excel = page.frames().find(f => f.url().includes('excel.officeapps.live.com'));
 if (!excel) throw new Error('Excel frame not found');
 
-async function copyRange(sheet, range) {
+async function copyRange(sheet, cols, rows) {
   await excel.getByRole('tab', { name: new RegExp('Folha de cálculo ' + sheet, 'i') }).click();
-  await page.waitForTimeout(1200);
-  const nameBox = excel.getByRole('combobox', { name: /Caixa de Nome/i });
-  await nameBox.click();
-  await nameBox.fill(range);
-  await nameBox.press('Enter');
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(1000);
   const grid = excel.getByRole('textbox', { name: 'grid' });
   await grid.focus();
-  await grid.press('Control+c');
-  await page.waitForTimeout(900);
-  let clip='';
-  try { clip = await excel.evaluate(() => navigator.clipboard.readText()); }
-  catch (e) { clip = 'CLIPBOARD_ERROR: ' + String(e); }
+  await page.keyboard.press('Control+Home');
+  await page.keyboard.press('ArrowRight'); // A1 -> B1
+  for (let i=1;i<cols;i++) await page.keyboard.press('Shift+ArrowRight');
+  for (let i=1;i<rows;i++) await page.keyboard.press('Shift+ArrowDown');
+  await page.keyboard.press('Control+c');
+  await page.waitForTimeout(800);
+  const clip = await excel.evaluate(() => navigator.clipboard.readText());
   console.log('COPY_'+sheet+'_START');
   console.log(clip);
   console.log('COPY_'+sheet+'_END');
   return clip;
 }
 
-await copyRange('Sheet1','B1:D19');
-await copyRange('Sheet2','B1:H19');
-await page.screenshot({ path: 'moura-2026/debug.png', fullPage: false });
+await copyRange('Sheet1',3,19); // B1:D19
+await copyRange('Sheet2',7,19); // B1:H19
 await browser.close();
