@@ -1,21 +1,10 @@
 name: Moura Excel Sync
 
 on:
-  push:
-    paths:
-      - 'moura-2026/sync.mjs'
-      - 'moura-2026/index.html'
-      - '.github/workflows/moura-sync.yml'
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
-
-concurrency:
-  group: moura-excel-sync
-  cancel-in-progress: false
 
 jobs:
   sync:
@@ -52,13 +41,3 @@ jobs:
             -f content="$CONTENT" \
             -f sha="$SHA" \
             -f branch='main' >/dev/null
-          echo "Published moura-2026/data.json"
-
-      - name: Upload debug screenshot on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: moura-sync-debug
-          path: moura-2026/debug.png
-          if-no-files-found: ignore
-          retention-days: 2
