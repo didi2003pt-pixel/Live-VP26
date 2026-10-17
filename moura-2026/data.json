@@ -10,7 +10,7 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T16:14:00.000Z",
+    "syncedAt": "2026-10-17T16:46:00.000Z",
     "refreshMinutes": null,
     "manual": true,
     "basis": "Print validado da Sheet2"
@@ -353,17 +353,31 @@
       "key": "R5G3",
       "race": 5,
       "group": 3,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        2,
+        6,
+        3,
+        5,
+        1,
+        4
+      ]
     },
     {
       "key": "R6G3",
       "race": 6,
       "group": 3,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        3,
+        6,
+        2,
+        4,
+        1,
+        5
+      ]
     }
   ],
   "races": [
@@ -1082,6 +1096,57 @@
       ]
     },
     {
+      "key": "R5G3",
+      "race": 5,
+      "group": 3,
+      "finishOrder": [
+        2,
+        6,
+        3,
+        5,
+        1,
+        4
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 2,
+          "team": "Mafalda Paquete / Tiago Rodrigues",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 6,
+          "team": "José Teixeira / João Teixeira",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 3,
+          "team": "Nuno Azevedo / Miguel Campos",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 5,
+          "team": "Arina Osypova / Joana Duarte",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 1,
+          "team": "Filipe Loureiro / Tiago Marcelino",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 4,
+          "team": "Pedro Teixeira / Susana Maria",
+          "points": 6
+        }
+      ]
+    },
+    {
       "key": "R6G1",
       "race": 6,
       "group": 1,
@@ -1179,6 +1244,57 @@
           "position": 6,
           "boat": 6,
           "team": "Manuel Caetano Mariano / Rui Pedro",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R6G3",
+      "race": 6,
+      "group": 3,
+      "finishOrder": [
+        3,
+        6,
+        2,
+        4,
+        1,
+        5
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 3,
+          "team": "Nuno Azevedo / Miguel Campos",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 6,
+          "team": "José Teixeira / João Teixeira",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 2,
+          "team": "Mafalda Paquete / Tiago Rodrigues",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 4,
+          "team": "Pedro Teixeira / Susana Maria",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 1,
+          "team": "Filipe Loureiro / Tiago Marcelino",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 5,
+          "team": "Arina Osypova / Joana Duarte",
           "points": 6
         }
       ]
@@ -1312,6 +1428,22 @@
       "4": "João Ramada / Joana Dinis",
       "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
       "6": "Manuel Caetano Mariano / Rui Pedro"
+    },
+    "R5G3": {
+      "1": "Filipe Loureiro / Tiago Marcelino",
+      "2": "Mafalda Paquete / Tiago Rodrigues",
+      "3": "Nuno Azevedo / Miguel Campos",
+      "4": "Pedro Teixeira / Susana Maria",
+      "5": "Arina Osypova / Joana Duarte",
+      "6": "José Teixeira / João Teixeira"
+    },
+    "R6G3": {
+      "1": "Filipe Loureiro / Tiago Marcelino",
+      "2": "Mafalda Paquete / Tiago Rodrigues",
+      "3": "Nuno Azevedo / Miguel Campos",
+      "4": "Pedro Teixeira / Susana Maria",
+      "5": "Arina Osypova / Joana Duarte",
+      "6": "José Teixeira / João Teixeira"
     }
   },
   "commonRaceNumbers": [
@@ -1357,7 +1489,9 @@
         "1": 3,
         "2": 1,
         "3": 2,
-        "4": 1
+        "4": 1,
+        "5": 1,
+        "6": 3
       },
       "total": 7,
       "position": 2,
@@ -1465,7 +1599,9 @@
         "1": 1,
         "2": 4,
         "3": 1,
-        "4": 5
+        "4": 5,
+        "5": 2,
+        "6": 2
       },
       "total": 11,
       "position": 7,
@@ -1485,7 +1621,9 @@
         "1": 5,
         "2": 2,
         "3": 4,
-        "4": 2
+        "4": 2,
+        "5": 3,
+        "6": 1
       },
       "total": 13,
       "position": 8,
@@ -1549,7 +1687,9 @@
         "1": 4,
         "2": 3,
         "3": 3,
-        "4": 4
+        "4": 4,
+        "5": 6,
+        "6": 4
       },
       "total": 14,
       "position": 11,
@@ -1569,7 +1709,9 @@
         "1": 2,
         "2": 5,
         "3": 5,
-        "4": 3
+        "4": 3,
+        "5": 5,
+        "6": 5
       },
       "total": 15,
       "position": 12,
@@ -1699,7 +1841,9 @@
         "1": 6,
         "2": 6,
         "3": 6,
-        "4": 6
+        "4": 6,
+        "5": 4,
+        "6": 6
       },
       "total": 24,
       "position": 17,
@@ -1916,7 +2060,9 @@
         1,
         2,
         3,
-        4
+        4,
+        5,
+        6
       ],
       "standings": [
         {
@@ -1926,9 +2072,11 @@
             "1": 3,
             "2": 1,
             "3": 2,
-            "4": 1
+            "4": 1,
+            "5": 1,
+            "6": 3
           },
-          "total": 7,
+          "total": 11,
           "position": 1,
           "tied": false
         },
@@ -1939,9 +2087,11 @@
             "1": 1,
             "2": 4,
             "3": 1,
-            "4": 5
+            "4": 5,
+            "5": 2,
+            "6": 2
           },
-          "total": 11,
+          "total": 15,
           "position": 2,
           "tied": false
         },
@@ -1952,9 +2102,11 @@
             "1": 5,
             "2": 2,
             "3": 4,
-            "4": 2
+            "4": 2,
+            "5": 3,
+            "6": 1
           },
-          "total": 13,
+          "total": 17,
           "position": 3,
           "tied": false
         },
@@ -1965,9 +2117,11 @@
             "1": 4,
             "2": 3,
             "3": 3,
-            "4": 4
+            "4": 4,
+            "5": 6,
+            "6": 4
           },
-          "total": 14,
+          "total": 24,
           "position": 4,
           "tied": false
         },
@@ -1978,9 +2132,11 @@
             "1": 2,
             "2": 5,
             "3": 5,
-            "4": 3
+            "4": 3,
+            "5": 5,
+            "6": 5
           },
-          "total": 15,
+          "total": 25,
           "position": 5,
           "tied": false
         },
@@ -1991,9 +2147,11 @@
             "1": 6,
             "2": 6,
             "3": 6,
-            "4": 6
+            "4": 6,
+            "5": 4,
+            "6": 6
           },
-          "total": 24,
+          "total": 34,
           "position": 6,
           "tied": false
         }
