@@ -10,7 +10,7 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T16:03:00.000Z",
+    "syncedAt": "2026-10-17T16:06:00.000Z",
     "refreshMinutes": null,
     "manual": true,
     "basis": "Print validado da Sheet2"
@@ -188,9 +188,16 @@
       "key": "R6G1",
       "race": 6,
       "group": 1,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        2
+      ]
     },
     {
       "key": "R1G2",
@@ -256,9 +263,16 @@
       "key": "R5G2",
       "race": 5,
       "group": 2,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        1,
+        5,
+        4,
+        6,
+        2,
+        3
+      ]
     },
     {
       "key": "R6G2",
@@ -1008,6 +1022,108 @@
           "points": 6
         }
       ]
+    },
+    {
+      "key": "R5G2",
+      "race": 5,
+      "group": 2,
+      "finishOrder": [
+        1,
+        5,
+        4,
+        6,
+        2,
+        3
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 1,
+          "team": "Mário Drummond Borges / Mafalda Neto",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 5,
+          "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 4,
+          "team": "João Ramada / Joana Dinis",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 6,
+          "team": "Manuel Caetano Mariano / Rui Pedro",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 2,
+          "team": "Vasco Soares / Matilde Boto",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 3,
+          "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R6G1",
+      "race": 6,
+      "group": 1,
+      "finishOrder": [
+        6,
+        4,
+        5,
+        3,
+        1,
+        2
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 6,
+          "team": "Manuel Champalimaud / António Barros",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 4,
+          "team": "Carolina Campos / Ricardo Rosa",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 5,
+          "team": "Matilde Caixinha / Carlota Varela",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 3,
+          "team": "Cristina Costa / Bárbara Simões",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 1,
+          "team": "Manuel Diniz / Sebastião Catanho",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 2,
+          "team": "António Manuel Baio / José Luís Torres",
+          "points": 6
+        }
+      ]
     }
   ],
   "raceBoatMaps": {
@@ -1114,6 +1230,22 @@
       "4": "Carolina Campos / Ricardo Rosa",
       "5": "Matilde Caixinha / Carlota Varela",
       "6": "Manuel Champalimaud / António Barros"
+    },
+    "R6G1": {
+      "1": "Manuel Diniz / Sebastião Catanho",
+      "2": "António Manuel Baio / José Luís Torres",
+      "3": "Cristina Costa / Bárbara Simões",
+      "4": "Carolina Campos / Ricardo Rosa",
+      "5": "Matilde Caixinha / Carlota Varela",
+      "6": "Manuel Champalimaud / António Barros"
+    },
+    "R5G2": {
+      "1": "Mário Drummond Borges / Mafalda Neto",
+      "2": "Vasco Soares / Matilde Boto",
+      "3": "Hugo Correia Hakenhut / Henrique Teodoro",
+      "4": "João Ramada / Joana Dinis",
+      "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+      "6": "Manuel Caetano Mariano / Rui Pedro"
     }
   },
   "commonRaceNumbers": [
@@ -1138,7 +1270,8 @@
         "2": 1,
         "3": 1,
         "4": 2,
-        "5": 3
+        "5": 3,
+        "6": 3
       },
       "total": 5,
       "position": 1,
@@ -1178,7 +1311,8 @@
         "1": 2,
         "2": 2,
         "3": 1,
-        "4": 3
+        "4": 3,
+        "5": 5
       },
       "total": 8,
       "position": 3,
@@ -1198,7 +1332,8 @@
         "1": 1,
         "2": 1,
         "3": 3,
-        "4": 4
+        "4": 4,
+        "5": 1
       },
       "total": 9,
       "position": 4,
@@ -1219,7 +1354,8 @@
         "2": 2,
         "3": 5,
         "4": 1,
-        "5": 1
+        "5": 1,
+        "6": 2
       },
       "total": 10,
       "position": 5,
@@ -1239,7 +1375,8 @@
         "1": 3,
         "2": 4,
         "3": 2,
-        "4": 1
+        "4": 1,
+        "5": 3
       },
       "total": 10,
       "position": 6,
@@ -1299,7 +1436,8 @@
         "1": 4,
         "2": 3,
         "3": 4,
-        "4": 2
+        "4": 2,
+        "5": 4
       },
       "total": 13,
       "position": 9,
@@ -1320,7 +1458,8 @@
         "2": 3,
         "3": 3,
         "4": 3,
-        "5": 2
+        "5": 2,
+        "6": 4
       },
       "total": 14,
       "position": 10,
@@ -1381,7 +1520,8 @@
         "2": 5,
         "3": 2,
         "4": 5,
-        "5": 4
+        "5": 4,
+        "6": 1
       },
       "total": 15,
       "position": 13,
@@ -1402,7 +1542,8 @@
         "2": 4,
         "3": 4,
         "4": 4,
-        "5": 5
+        "5": 5,
+        "6": 5
       },
       "total": 16,
       "position": 14,
@@ -1422,7 +1563,8 @@
         "1": 6,
         "2": 5,
         "3": 5,
-        "4": 5
+        "4": 5,
+        "5": 2
       },
       "total": 21,
       "position": 15,
@@ -1442,7 +1584,8 @@
         "1": 5,
         "2": 6,
         "3": 6,
-        "4": 6
+        "4": 6,
+        "5": 6
       },
       "total": 23,
       "position": 16,
@@ -1463,7 +1606,8 @@
         "2": 6,
         "3": 6,
         "4": 6,
-        "5": 6
+        "5": 6,
+        "6": 6
       },
       "total": 24,
       "position": 17,
@@ -1497,7 +1641,8 @@
         2,
         3,
         4,
-        5
+        5,
+        6
       ],
       "standings": [
         {
@@ -1508,9 +1653,10 @@
             "2": 1,
             "3": 1,
             "4": 2,
-            "5": 3
+            "5": 3,
+            "6": 3
           },
-          "total": 8,
+          "total": 11,
           "position": 1,
           "tied": false
         },
@@ -1522,24 +1668,11 @@
             "2": 2,
             "3": 5,
             "4": 1,
-            "5": 1
+            "5": 1,
+            "6": 2
           },
-          "total": 11,
+          "total": 13,
           "position": 2,
-          "tied": false
-        },
-        {
-          "name": "Cristina Costa / Bárbara Simões",
-          "boat": 3,
-          "scores": {
-            "1": 5,
-            "2": 3,
-            "3": 3,
-            "4": 3,
-            "5": 2
-          },
-          "total": 16,
-          "position": 3,
           "tied": false
         },
         {
@@ -1550,9 +1683,25 @@
             "2": 5,
             "3": 2,
             "4": 5,
-            "5": 4
+            "5": 4,
+            "6": 1
           },
-          "total": 19,
+          "total": 20,
+          "position": 3,
+          "tied": false
+        },
+        {
+          "name": "Cristina Costa / Bárbara Simões",
+          "boat": 3,
+          "scores": {
+            "1": 5,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 2,
+            "6": 4
+          },
+          "total": 20,
           "position": 4,
           "tied": false
         },
@@ -1564,9 +1713,10 @@
             "2": 4,
             "3": 4,
             "4": 4,
-            "5": 5
+            "5": 5,
+            "6": 5
           },
-          "total": 21,
+          "total": 26,
           "position": 5,
           "tied": false
         },
@@ -1578,9 +1728,10 @@
             "2": 6,
             "3": 6,
             "4": 6,
-            "5": 6
+            "5": 6,
+            "6": 6
           },
-          "total": 30,
+          "total": 36,
           "position": 6,
           "tied": false
         }
@@ -1591,22 +1742,10 @@
         1,
         2,
         3,
-        4
+        4,
+        5
       ],
       "standings": [
-        {
-          "name": "Vasco Soares / Matilde Boto",
-          "boat": 2,
-          "scores": {
-            "1": 2,
-            "2": 2,
-            "3": 1,
-            "4": 3
-          },
-          "total": 8,
-          "position": 1,
-          "tied": false
-        },
         {
           "name": "Mário Drummond Borges / Mafalda Neto",
           "boat": 1,
@@ -1614,9 +1753,24 @@
             "1": 1,
             "2": 1,
             "3": 3,
-            "4": 4
+            "4": 4,
+            "5": 1
           },
-          "total": 9,
+          "total": 10,
+          "position": 1,
+          "tied": false
+        },
+        {
+          "name": "Vasco Soares / Matilde Boto",
+          "boat": 2,
+          "scores": {
+            "1": 2,
+            "2": 2,
+            "3": 1,
+            "4": 3,
+            "5": 5
+          },
+          "total": 13,
           "position": 2,
           "tied": false
         },
@@ -1627,9 +1781,10 @@
             "1": 3,
             "2": 4,
             "3": 2,
-            "4": 1
+            "4": 1,
+            "5": 3
           },
-          "total": 10,
+          "total": 13,
           "position": 3,
           "tied": false
         },
@@ -1640,9 +1795,10 @@
             "1": 4,
             "2": 3,
             "3": 4,
-            "4": 2
+            "4": 2,
+            "5": 4
           },
-          "total": 13,
+          "total": 17,
           "position": 4,
           "tied": false
         },
@@ -1653,9 +1809,10 @@
             "1": 6,
             "2": 5,
             "3": 5,
-            "4": 5
+            "4": 5,
+            "5": 2
           },
-          "total": 21,
+          "total": 23,
           "position": 5,
           "tied": false
         },
@@ -1666,9 +1823,10 @@
             "1": 5,
             "2": 6,
             "3": 6,
-            "4": 6
+            "4": 6,
+            "5": 6
           },
-          "total": 23,
+          "total": 29,
           "position": 6,
           "tied": false
         }
