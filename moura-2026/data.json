@@ -10,8 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T15:14:05.726Z",
-    "refreshMinutes": 5
+    "syncedAt": "2026-10-17T15:52:00.000Z",
+    "refreshMinutes": null,
+    "manual": true,
+    "basis": "Print validado da Sheet2"
   },
   "maxRace": 6,
   "teams": [
@@ -171,9 +173,15 @@
       "key": "R5G1",
       "race": 5,
       "group": 1,
-      "entered": 0,
+      "entered": 5,
       "complete": false,
-      "finishOrder": []
+      "finishOrder": [
+        4,
+        5,
+        3,
+        6,
+        1
+      ]
     },
     {
       "key": "R6G1",
@@ -308,9 +316,16 @@
       "key": "R4G3",
       "race": 4,
       "group": 3,
-      "entered": 0,
-      "complete": false,
-      "finishOrder": []
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        2,
+        3,
+        1,
+        4,
+        6,
+        5
+      ]
     },
     {
       "key": "R5G3",
@@ -890,6 +905,57 @@
           "points": 6
         }
       ]
+    },
+    {
+      "key": "R4G3",
+      "race": 4,
+      "group": 3,
+      "finishOrder": [
+        2,
+        3,
+        1,
+        4,
+        6,
+        5
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 2,
+          "team": "Mafalda Paquete / Tiago Rodrigues",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 3,
+          "team": "Nuno Azevedo / Miguel Campos",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 1,
+          "team": "Filipe Loureiro / Tiago Marcelino",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 4,
+          "team": "Pedro Teixeira / Susana Maria",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 6,
+          "team": "José Teixeira / João Teixeira",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 5,
+          "team": "Arina Osypova / Joana Duarte",
+          "points": 6
+        }
+      ]
     }
   ],
   "raceBoatMaps": {
@@ -980,12 +1046,21 @@
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
       "6": "José Teixeira / João Teixeira"
+    },
+    "R4G3": {
+      "1": "Filipe Loureiro / Tiago Marcelino",
+      "2": "Mafalda Paquete / Tiago Rodrigues",
+      "3": "Nuno Azevedo / Miguel Campos",
+      "4": "Pedro Teixeira / Susana Maria",
+      "5": "Arina Osypova / Joana Duarte",
+      "6": "José Teixeira / João Teixeira"
     }
   },
   "commonRaceNumbers": [
     1,
     2,
-    3
+    3,
+    4
   ],
   "overall": [
     {
@@ -995,7 +1070,8 @@
       "scores": {
         "1": 1,
         "2": 1,
-        "3": 1
+        "3": 1,
+        "4": 2
       },
       "allScores": {
         "1": 1,
@@ -1003,26 +1079,27 @@
         "3": 1,
         "4": 2
       },
-      "total": 3,
+      "total": 5,
       "position": 1,
       "tied": false
     },
     {
-      "name": "Mário Drummond Borges / Mafalda Neto",
-      "group": 2,
-      "boat": 1,
+      "name": "Mafalda Paquete / Tiago Rodrigues",
+      "group": 3,
+      "boat": 2,
       "scores": {
-        "1": 1,
+        "1": 3,
         "2": 1,
-        "3": 3
+        "3": 2,
+        "4": 1
       },
       "allScores": {
-        "1": 1,
+        "1": 3,
         "2": 1,
-        "3": 3,
-        "4": 4
+        "3": 2,
+        "4": 1
       },
-      "total": 5,
+      "total": 7,
       "position": 2,
       "tied": false
     },
@@ -1033,7 +1110,8 @@
       "scores": {
         "1": 2,
         "2": 2,
-        "3": 1
+        "3": 1,
+        "4": 3
       },
       "allScores": {
         "1": 2,
@@ -1041,44 +1119,28 @@
         "3": 1,
         "4": 3
       },
-      "total": 5,
+      "total": 8,
       "position": 3,
       "tied": false
     },
     {
-      "name": "José Teixeira / João Teixeira",
-      "group": 3,
-      "boat": 6,
+      "name": "Mário Drummond Borges / Mafalda Neto",
+      "group": 2,
+      "boat": 1,
       "scores": {
         "1": 1,
-        "2": 4,
-        "3": 1
+        "2": 1,
+        "3": 3,
+        "4": 4
       },
       "allScores": {
         "1": 1,
-        "2": 4,
-        "3": 1
+        "2": 1,
+        "3": 3,
+        "4": 4
       },
-      "total": 6,
+      "total": 9,
       "position": 4,
-      "tied": false
-    },
-    {
-      "name": "Mafalda Paquete / Tiago Rodrigues",
-      "group": 3,
-      "boat": 2,
-      "scores": {
-        "1": 3,
-        "2": 1,
-        "3": 2
-      },
-      "allScores": {
-        "1": 3,
-        "2": 1,
-        "3": 2
-      },
-      "total": 6,
-      "position": 5,
       "tied": false
     },
     {
@@ -1088,7 +1150,8 @@
       "scores": {
         "1": 2,
         "2": 2,
-        "3": 5
+        "3": 5,
+        "4": 1
       },
       "allScores": {
         "1": 2,
@@ -1096,8 +1159,8 @@
         "3": 5,
         "4": 1
       },
-      "total": 9,
-      "position": 6,
+      "total": 10,
+      "position": 5,
       "tied": false
     },
     {
@@ -1107,7 +1170,8 @@
       "scores": {
         "1": 3,
         "2": 4,
-        "3": 2
+        "3": 2,
+        "4": 1
       },
       "allScores": {
         "1": 3,
@@ -1115,45 +1179,28 @@
         "3": 2,
         "4": 1
       },
-      "total": 9,
-      "position": 7,
+      "total": 10,
+      "position": 6,
       "tied": false
     },
     {
-      "name": "Manuel Champalimaud / António Barros",
-      "group": 1,
+      "name": "José Teixeira / João Teixeira",
+      "group": 3,
       "boat": 6,
       "scores": {
-        "1": 3,
-        "2": 5,
-        "3": 2
-      },
-      "allScores": {
-        "1": 3,
-        "2": 5,
-        "3": 2,
+        "1": 1,
+        "2": 4,
+        "3": 1,
         "4": 5
       },
-      "total": 10,
-      "position": 8,
-      "tied": false
-    },
-    {
-      "name": "Pedro Teixeira / Susana Maria",
-      "group": 3,
-      "boat": 4,
-      "scores": {
-        "1": 4,
-        "2": 3,
-        "3": 3
-      },
       "allScores": {
-        "1": 4,
-        "2": 3,
-        "3": 3
+        "1": 1,
+        "2": 4,
+        "3": 1,
+        "4": 5
       },
-      "total": 10,
-      "position": 9,
+      "total": 11,
+      "position": 7,
       "tied": false
     },
     {
@@ -1163,34 +1210,17 @@
       "scores": {
         "1": 5,
         "2": 2,
-        "3": 4
+        "3": 4,
+        "4": 2
       },
       "allScores": {
         "1": 5,
         "2": 2,
-        "3": 4
+        "3": 4,
+        "4": 2
       },
-      "total": 11,
-      "position": 10,
-      "tied": false
-    },
-    {
-      "name": "Cristina Costa / Bárbara Simões",
-      "group": 1,
-      "boat": 3,
-      "scores": {
-        "1": 5,
-        "2": 3,
-        "3": 3
-      },
-      "allScores": {
-        "1": 5,
-        "2": 3,
-        "3": 3,
-        "4": 3
-      },
-      "total": 11,
-      "position": 11,
+      "total": 13,
+      "position": 8,
       "tied": false
     },
     {
@@ -1200,7 +1230,8 @@
       "scores": {
         "1": 4,
         "2": 3,
-        "3": 4
+        "3": 4,
+        "4": 2
       },
       "allScores": {
         "1": 4,
@@ -1208,8 +1239,48 @@
         "3": 4,
         "4": 2
       },
-      "total": 11,
-      "position": 12,
+      "total": 13,
+      "position": 9,
+      "tied": false
+    },
+    {
+      "name": "Cristina Costa / Bárbara Simões",
+      "group": 1,
+      "boat": 3,
+      "scores": {
+        "1": 5,
+        "2": 3,
+        "3": 3,
+        "4": 3
+      },
+      "allScores": {
+        "1": 5,
+        "2": 3,
+        "3": 3,
+        "4": 3
+      },
+      "total": 14,
+      "position": 10,
+      "tied": false
+    },
+    {
+      "name": "Pedro Teixeira / Susana Maria",
+      "group": 3,
+      "boat": 4,
+      "scores": {
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 4
+      },
+      "allScores": {
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 4
+      },
+      "total": 14,
+      "position": 11,
       "tied": false
     },
     {
@@ -1219,14 +1290,36 @@
       "scores": {
         "1": 2,
         "2": 5,
-        "3": 5
+        "3": 5,
+        "4": 3
       },
       "allScores": {
         "1": 2,
         "2": 5,
-        "3": 5
+        "3": 5,
+        "4": 3
       },
-      "total": 12,
+      "total": 15,
+      "position": 12,
+      "tied": false
+    },
+    {
+      "name": "Manuel Champalimaud / António Barros",
+      "group": 1,
+      "boat": 6,
+      "scores": {
+        "1": 3,
+        "2": 5,
+        "3": 2,
+        "4": 5
+      },
+      "allScores": {
+        "1": 3,
+        "2": 5,
+        "3": 2,
+        "4": 5
+      },
+      "total": 15,
       "position": 13,
       "tied": false
     },
@@ -1237,7 +1330,8 @@
       "scores": {
         "1": 4,
         "2": 4,
-        "3": 4
+        "3": 4,
+        "4": 4
       },
       "allScores": {
         "1": 4,
@@ -1245,7 +1339,7 @@
         "3": 4,
         "4": 4
       },
-      "total": 12,
+      "total": 16,
       "position": 14,
       "tied": false
     },
@@ -1256,7 +1350,8 @@
       "scores": {
         "1": 6,
         "2": 5,
-        "3": 5
+        "3": 5,
+        "4": 5
       },
       "allScores": {
         "1": 6,
@@ -1264,7 +1359,7 @@
         "3": 5,
         "4": 5
       },
-      "total": 16,
+      "total": 21,
       "position": 15,
       "tied": false
     },
@@ -1275,7 +1370,8 @@
       "scores": {
         "1": 5,
         "2": 6,
-        "3": 6
+        "3": 6,
+        "4": 6
       },
       "allScores": {
         "1": 5,
@@ -1283,7 +1379,7 @@
         "3": 6,
         "4": 6
       },
-      "total": 17,
+      "total": 23,
       "position": 16,
       "tied": false
     },
@@ -1294,7 +1390,8 @@
       "scores": {
         "1": 6,
         "2": 6,
-        "3": 6
+        "3": 6,
+        "4": 6
       },
       "allScores": {
         "1": 6,
@@ -1302,7 +1399,7 @@
         "3": 6,
         "4": 6
       },
-      "total": 18,
+      "total": 24,
       "position": 17,
       "tied": true
     },
@@ -1313,14 +1410,16 @@
       "scores": {
         "1": 6,
         "2": 6,
-        "3": 6
+        "3": 6,
+        "4": 6
       },
       "allScores": {
         "1": 6,
         "2": 6,
-        "3": 6
+        "3": 6,
+        "4": 6
       },
-      "total": 18,
+      "total": 24,
       "position": 17,
       "tied": true
     }
@@ -1506,43 +1605,34 @@
       "completedRaces": [
         1,
         2,
-        3
+        3,
+        4
       ],
       "standings": [
-        {
-          "name": "José Teixeira / João Teixeira",
-          "boat": 6,
-          "scores": {
-            "1": 1,
-            "2": 4,
-            "3": 1
-          },
-          "total": 6,
-          "position": 1,
-          "tied": false
-        },
         {
           "name": "Mafalda Paquete / Tiago Rodrigues",
           "boat": 2,
           "scores": {
             "1": 3,
             "2": 1,
-            "3": 2
+            "3": 2,
+            "4": 1
           },
-          "total": 6,
-          "position": 2,
+          "total": 7,
+          "position": 1,
           "tied": false
         },
         {
-          "name": "Pedro Teixeira / Susana Maria",
-          "boat": 4,
+          "name": "José Teixeira / João Teixeira",
+          "boat": 6,
           "scores": {
-            "1": 4,
-            "2": 3,
-            "3": 3
+            "1": 1,
+            "2": 4,
+            "3": 1,
+            "4": 5
           },
-          "total": 10,
-          "position": 3,
+          "total": 11,
+          "position": 2,
           "tied": false
         },
         {
@@ -1551,9 +1641,23 @@
           "scores": {
             "1": 5,
             "2": 2,
-            "3": 4
+            "3": 4,
+            "4": 2
           },
-          "total": 11,
+          "total": 13,
+          "position": 3,
+          "tied": false
+        },
+        {
+          "name": "Pedro Teixeira / Susana Maria",
+          "boat": 4,
+          "scores": {
+            "1": 4,
+            "2": 3,
+            "3": 3,
+            "4": 4
+          },
+          "total": 14,
           "position": 4,
           "tied": false
         },
@@ -1563,9 +1667,10 @@
           "scores": {
             "1": 2,
             "2": 5,
-            "3": 5
+            "3": 5,
+            "4": 3
           },
-          "total": 12,
+          "total": 15,
           "position": 5,
           "tied": false
         },
@@ -1575,14 +1680,22 @@
           "scores": {
             "1": 6,
             "2": 6,
-            "3": 6
+            "3": 6,
+            "4": 6
           },
-          "total": 18,
+          "total": 24,
           "position": 6,
           "tied": false
         }
       ]
     }
   },
-  "pending": []
+  "pending": [
+    {
+      "key": "R5G1",
+      "race": 5,
+      "group": 1,
+      "entered": 5
+    }
+  ]
 }
