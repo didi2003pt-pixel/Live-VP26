@@ -1,5 +1,5 @@
 {
-  "schema": 2,
+  "schema": 1,
   "event": {
     "name": "Circuito Nacional de Vela em Águas Interiores 2026",
     "stage": "4.ª Etapa — Moura / Alqueva",
@@ -10,14 +10,8 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T14:08:16.057Z",
+    "syncedAt": "2026-10-17T14:00:11.021Z",
     "refreshMinutes": 5
-  },
-  "scoring": {
-    "method": "sum_all",
-    "discards": 0,
-    "lowerIsBetter": true,
-    "description": "Somatório de todas as regatas válidas. Sem descartes."
   },
   "maxRace": 6,
   "teams": [
@@ -609,6 +603,9 @@
       "scores": {
         "1": 1
       },
+      "allScores": {
+        "1": 1
+      },
       "total": 1,
       "position": 1,
       "tied": true
@@ -619,6 +616,10 @@
       "boat": 1,
       "scores": {
         "1": 1
+      },
+      "allScores": {
+        "1": 1,
+        "2": 1
       },
       "total": 1,
       "position": 1,
@@ -631,6 +632,10 @@
       "scores": {
         "1": 1
       },
+      "allScores": {
+        "1": 1,
+        "2": 1
+      },
       "total": 1,
       "position": 1,
       "tied": true
@@ -642,6 +647,10 @@
       "scores": {
         "1": 2
       },
+      "allScores": {
+        "1": 2,
+        "2": 2
+      },
       "total": 2,
       "position": 4,
       "tied": true
@@ -651,6 +660,9 @@
       "group": 3,
       "boat": 1,
       "scores": {
+        "1": 2
+      },
+      "allScores": {
         "1": 2
       },
       "total": 2,
@@ -664,6 +676,10 @@
       "scores": {
         "1": 2
       },
+      "allScores": {
+        "1": 2,
+        "2": 2
+      },
       "total": 2,
       "position": 4,
       "tied": true
@@ -675,6 +691,10 @@
       "scores": {
         "1": 3
       },
+      "allScores": {
+        "1": 3,
+        "2": 4
+      },
       "total": 3,
       "position": 7,
       "tied": true
@@ -684,6 +704,9 @@
       "group": 3,
       "boat": 2,
       "scores": {
+        "1": 3
+      },
+      "allScores": {
         "1": 3
       },
       "total": 3,
@@ -697,6 +720,10 @@
       "scores": {
         "1": 3
       },
+      "allScores": {
+        "1": 3,
+        "2": 5
+      },
       "total": 3,
       "position": 7,
       "tied": true
@@ -707,6 +734,10 @@
       "boat": 6,
       "scores": {
         "1": 4
+      },
+      "allScores": {
+        "1": 4,
+        "2": 3
       },
       "total": 4,
       "position": 10,
@@ -719,6 +750,10 @@
       "scores": {
         "1": 4
       },
+      "allScores": {
+        "1": 4,
+        "2": 4
+      },
       "total": 4,
       "position": 10,
       "tied": true
@@ -728,6 +763,9 @@
       "group": 3,
       "boat": 4,
       "scores": {
+        "1": 4
+      },
+      "allScores": {
         "1": 4
       },
       "total": 4,
@@ -741,6 +779,10 @@
       "scores": {
         "1": 5
       },
+      "allScores": {
+        "1": 5,
+        "2": 3
+      },
       "total": 5,
       "position": 13,
       "tied": true
@@ -752,6 +794,10 @@
       "scores": {
         "1": 5
       },
+      "allScores": {
+        "1": 5,
+        "2": 6
+      },
       "total": 5,
       "position": 13,
       "tied": true
@@ -761,6 +807,9 @@
       "group": 3,
       "boat": 3,
       "scores": {
+        "1": 5
+      },
+      "allScores": {
         "1": 5
       },
       "total": 5,
@@ -774,6 +823,10 @@
       "scores": {
         "1": 6
       },
+      "allScores": {
+        "1": 6,
+        "2": 6
+      },
       "total": 6,
       "position": 16,
       "tied": true
@@ -783,6 +836,9 @@
       "group": 3,
       "boat": 5,
       "scores": {
+        "1": 6
+      },
+      "allScores": {
         "1": 6
       },
       "total": 6,
@@ -795,6 +851,10 @@
       "boat": 5,
       "scores": {
         "1": 6
+      },
+      "allScores": {
+        "1": 6,
+        "2": 5
       },
       "total": 6,
       "position": 16,
