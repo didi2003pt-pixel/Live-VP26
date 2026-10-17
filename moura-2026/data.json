@@ -105,7 +105,7 @@
     {
       "group": 3,
       "boat": 6,
-      "name": "José Teixeira / João Teixeira"
+      "name": "João Fonseca / João Teixeira"
     }
   ],
   "sourceRows": [
@@ -499,7 +499,7 @@
         {
           "position": 1,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 1
         },
         {
@@ -670,7 +670,7 @@
         {
           "position": 4,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 4
         },
         {
@@ -805,7 +805,7 @@
         {
           "position": 1,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 1
         },
         {
@@ -982,7 +982,7 @@
         {
           "position": 5,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 5
         },
         {
@@ -1117,7 +1117,7 @@
         {
           "position": 2,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 2
         },
         {
@@ -1270,7 +1270,7 @@
         {
           "position": 2,
           "boat": 6,
-          "team": "José Teixeira / João Teixeira",
+          "team": "João Fonseca / João Teixeira",
           "points": 2
         },
         {
@@ -1339,7 +1339,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     },
     "R3G1": {
       "1": "Manuel Diniz / Sebastião Catanho",
@@ -1379,7 +1379,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     },
     "R3G3": {
       "1": "Filipe Loureiro / Tiago Marcelino",
@@ -1387,7 +1387,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     },
     "R4G3": {
       "1": "Filipe Loureiro / Tiago Marcelino",
@@ -1395,7 +1395,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     },
     "R5G1": {
       "1": "Manuel Diniz / Sebastião Catanho",
@@ -1435,7 +1435,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     },
     "R6G3": {
       "1": "Filipe Loureiro / Tiago Marcelino",
@@ -1443,7 +1443,7 @@
       "3": "Nuno Azevedo / Miguel Campos",
       "4": "Pedro Teixeira / Susana Maria",
       "5": "Arina Osypova / Joana Duarte",
-      "6": "José Teixeira / João Teixeira"
+      "6": "João Fonseca / João Teixeira"
     }
   },
   "commonRaceNumbers": [
@@ -1586,7 +1586,7 @@
       "tied": false
     },
     {
-      "name": "José Teixeira / João Teixeira",
+      "name": "João Fonseca / João Teixeira",
       "group": 3,
       "boat": 6,
       "scores": {
@@ -2081,7 +2081,7 @@
           "tied": false
         },
         {
-          "name": "José Teixeira / João Teixeira",
+          "name": "João Fonseca / João Teixeira",
           "boat": 6,
           "scores": {
             "1": 1,
