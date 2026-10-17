@@ -113,6 +113,7 @@ tbody tr.rank3 td:first-child{box-shadow:inset 4px 0 0 var(--bronze)}
 td.team{text-align:left;font-weight:680}
 td.total{font-weight:900;color:var(--navy);background:#f0f4f7}
 tbody tr:nth-child(even) td.total{background:#edf2f5}
+.score.excluded{color:#9ba5ae;font-style:italic}
 .pos{font-weight:900;color:var(--navy)}
 .group-pill{
   display:inline-block;padding:2px 6px;border-radius:999px;font-size:8px;font-weight:850;white-space:nowrap;
@@ -141,6 +142,7 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
 .card-score{border:1px solid var(--line);border-radius:8px;background:#f8fafb;padding:5px;text-align:center}
 .card-score small{display:block;font-size:7px;color:var(--muted);font-weight:850;text-transform:uppercase}
 .card-score strong{font-size:14px;color:var(--navy)}
+.card-score.excluded strong{color:#9ba5ae;font-style:italic}
 .legend{margin-top:7px;color:#778492;font-size:8.5px;line-height:1.4}
 .footer{
   margin-top:12px;padding-top:9px;border-top:1px solid var(--line);
@@ -217,7 +219,6 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
       <div class="meta">
         <span class="badge live">● AO VIVO</span>
         <span class="badge provisional">Resultados provisórios</span>
-        <span class="badge">Sem descartes</span>
         <span class="badge">17–18 outubro 2026</span>
         <span class="updated" id="updated">A carregar dados…</span>
       </div>
@@ -270,7 +271,7 @@ function renderSummary(){
   const common=DATA.commonRaceNumbers||[];
   const pending=DATA.pending||[];
   document.getElementById('summary').innerHTML=[
-    ['Geral',common.length+' regata'+(common.length===1?'':'s'),'somatório de todas · sem descartes'],
+    ['Geral',common.length+' regata'+(common.length===1?'':'s'),'contam em todos os grupos'],
     ['Grupo 1',completedFor(1)+' concluída'+(completedFor(1)===1?'':'s'),'6 equipas'],
     ['Grupo 2',completedFor(2)+' concluída'+(completedFor(2)===1?'':'s'),'6 equipas'],
     ['Grupo 3',completedFor(3)+' concluída'+(completedFor(3)===1?'':'s'),'6 equipas']
@@ -289,10 +290,11 @@ function renderSummary(){
   else{notice.classList.remove('show');notice.textContent=''}
 }
 
-function scoreCell(row,r){
-  const value=row.scores?.[String(r)];
+function scoreCell(row,r,overall){
+  const value=overall?(row.allScores?.[String(r)]):row.scores?.[String(r)];
   if(value==null)return '<span class="score">—</span>';
-  return '<span class="score">'+esc(value)+'</span>';
+  const excluded=overall && !(DATA.commonRaceNumbers||[]).includes(r);
+  return '<span class="score '+(excluded?'excluded':'')+'">'+esc(value)+(excluded?'*':'')+'</span>';
 }
 function tableHTML(rows,overall,group){
   const races=Array.from({length:maxRace()},(_,i)=>i+1);
@@ -304,7 +306,7 @@ function tableHTML(rows,overall,group){
       '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
       '<td class="team">'+esc(row.name)+'</td>'+
       '<td>'+meta+'</td>'+
-      races.map(r=>'<td>'+scoreCell(row,r)+'</td>').join('')+
+      races.map(r=>'<td>'+scoreCell(row,r,overall)+'</td>').join('')+
       '<td class="total">'+(row.total??'—')+'</td>'+
     '</tr>';
   }).join('');
@@ -321,8 +323,9 @@ function cardsHTML(rows,overall){
       '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
       '</div><div class="card-scores">'+
       races.map(r=>{
-        const val=row.scores?.[String(r)];
-        return '<div class="card-score"><small>R'+r+'</small><strong>'+(val??'—')+'</strong></div>';
+        const val=overall?row.allScores?.[String(r)]:row.scores?.[String(r)];
+        const excluded=overall&&val!=null&&!(DATA.commonRaceNumbers||[]).includes(r);
+        return '<div class="card-score '+(excluded?'excluded':'')+'"><small>R'+r+'</small><strong>'+(val??'—')+(excluded?'*':'')+'</strong></div>';
       }).join('')+'</div></article>';
   }).join('')+'</div>';
 }
@@ -336,17 +339,19 @@ function render(){
   if(currentView==='overall'){
     rows=DATA.overall||[];title='Classificação Geral';overall=true;
     const counted=DATA.commonRaceNumbers||[];
-    subtitle=counted.length?'TOTAL = '+counted.map(r=>'R'+r).join(' + ')+' · todas contam · 0 descartes':'A aguardar uma regata completa nos três grupos · 0 descartes';
+    subtitle=counted.length?'TOTAL: '+counted.map(r=>'R'+r).join(' + ')+' (regatas concluídas nos 3 grupos)':'A aguardar uma regata completa nos três grupos';
   }else{
     group=Number(currentView.slice(1));
     rows=DATA.groups?.[String(group)]?.standings||[];
     title='Grupo '+group;
     const done=DATA.groups?.[String(group)]?.completedRaces||[];
-    subtitle=done.length?'TOTAL = '+done.map(r=>'R'+r).join(' + ')+' · todas contam · 0 descartes':'A aguardar resultados completos · 0 descartes';
+    subtitle=done.length?'TOTAL: '+done.map(r=>'R'+r).join(' + '):'A aguardar resultados completos';
   }
   const tag=overall?'Classificação transversal':'Classificação do grupo';
   content.innerHTML='<div class="section-head"><div><h2>'+title+'</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
-    tableHTML(rows,overall,group)+cardsHTML(rows,overall);
+    tableHTML(rows,overall,group)+cardsHTML(rows,overall)+
+    (overall&&rows.some(r=>Object.keys(r.allScores||{}).some(k=>!(DATA.commonRaceNumbers||[]).includes(Number(k))))?
+      '<div class="legend">* Resultado já concluído no respetivo grupo, mas ainda fora do TOTAL geral até a mesma regata estar completa nos três grupos.</div>':'');
 }
 async function loadData(manual=false){
   if(manual)setConnection('','A atualizar…');
