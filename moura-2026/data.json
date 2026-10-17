@@ -1,0 +1,1089 @@
+{
+  "schema": 1,
+  "event": {
+    "name": "Circuito Nacional de Vela em Águas Interiores 2026",
+    "stage": "4.ª Etapa — Moura / Alqueva",
+    "dates": "17 e 18 de outubro de 2026",
+    "className": "K420",
+    "status": "Resultados provisórios"
+  },
+  "source": {
+    "workbook": "Grupos 1 Moura.xlsx",
+    "readOnly": true,
+    "syncedAt": "2026-10-17T14:00:11.021Z",
+    "refreshMinutes": 5
+  },
+  "maxRace": 6,
+  "teams": [
+    {
+      "group": 1,
+      "boat": 1,
+      "name": "Manuel Diniz / Sebastião Catanho"
+    },
+    {
+      "group": 1,
+      "boat": 2,
+      "name": "António Manuel Baio / José Luís Torres"
+    },
+    {
+      "group": 1,
+      "boat": 3,
+      "name": "Cristina Costa / Bárbara Simões"
+    },
+    {
+      "group": 1,
+      "boat": 4,
+      "name": "Carolina Campos / Ricardo Rosa"
+    },
+    {
+      "group": 1,
+      "boat": 5,
+      "name": "Matilde Caixinha / Carlota Varela"
+    },
+    {
+      "group": 1,
+      "boat": 6,
+      "name": "Manuel Champalimaud / António Barros"
+    },
+    {
+      "group": 2,
+      "boat": 1,
+      "name": "Mário Drummond Borges / Mafalda Neto"
+    },
+    {
+      "group": 2,
+      "boat": 2,
+      "name": "Vasco Soares / Matilde Boto"
+    },
+    {
+      "group": 2,
+      "boat": 3,
+      "name": "Hugo Correia Hakenhut / Henrique Teodoro"
+    },
+    {
+      "group": 2,
+      "boat": 4,
+      "name": "João Ramada / Joana Dinis"
+    },
+    {
+      "group": 2,
+      "boat": 5,
+      "name": "Clara Correia Hakenhut / Maria Correia Wakenhut"
+    },
+    {
+      "group": 2,
+      "boat": 6,
+      "name": "Manuel Caetano Mariano / Rui Pedro"
+    },
+    {
+      "group": 3,
+      "boat": 1,
+      "name": "Filipe Loureiro / Tiago Marcelino"
+    },
+    {
+      "group": 3,
+      "boat": 2,
+      "name": "Mafalda Paquete / Tiago Rodrigues"
+    },
+    {
+      "group": 3,
+      "boat": 3,
+      "name": "Nuno Azevedo / Miguel Campos"
+    },
+    {
+      "group": 3,
+      "boat": 4,
+      "name": "Pedro Teixeira / Susana Maria"
+    },
+    {
+      "group": 3,
+      "boat": 5,
+      "name": "Arina Osypova / Joana Duarte"
+    },
+    {
+      "group": 3,
+      "boat": 6,
+      "name": "José Teixeira / João Teixeira"
+    }
+  ],
+  "sourceRows": [
+    {
+      "key": "R1G1",
+      "race": 1,
+      "group": 1,
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        5,
+        4,
+        6,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "key": "R2G1",
+      "race": 2,
+      "group": 1,
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        5,
+        4,
+        3,
+        1,
+        6,
+        2
+      ]
+    },
+    {
+      "key": "R3G1",
+      "race": 3,
+      "group": 1,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R4G1",
+      "race": 4,
+      "group": 1,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R5G1",
+      "race": 5,
+      "group": 1,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R6G1",
+      "race": 6,
+      "group": 1,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R1G2",
+      "race": 1,
+      "group": 2,
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        1,
+        2,
+        4,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "key": "R2G2",
+      "race": 2,
+      "group": 2,
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        1,
+        2,
+        6,
+        4,
+        5,
+        3
+      ]
+    },
+    {
+      "key": "R3G2",
+      "race": 3,
+      "group": 2,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R4G2",
+      "race": 4,
+      "group": 2,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R5G2",
+      "race": 5,
+      "group": 2,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R6G2",
+      "race": 6,
+      "group": 2,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R1G3",
+      "race": 1,
+      "group": 3,
+      "entered": 6,
+      "complete": true,
+      "finishOrder": [
+        6,
+        1,
+        2,
+        4,
+        3,
+        5
+      ]
+    },
+    {
+      "key": "R2G3",
+      "race": 2,
+      "group": 3,
+      "entered": 5,
+      "complete": false,
+      "finishOrder": [
+        2,
+        3,
+        4,
+        6,
+        1
+      ]
+    },
+    {
+      "key": "R3G3",
+      "race": 3,
+      "group": 3,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R4G3",
+      "race": 4,
+      "group": 3,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R5G3",
+      "race": 5,
+      "group": 3,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    },
+    {
+      "key": "R6G3",
+      "race": 6,
+      "group": 3,
+      "entered": 0,
+      "complete": false,
+      "finishOrder": []
+    }
+  ],
+  "races": [
+    {
+      "key": "R1G1",
+      "race": 1,
+      "group": 1,
+      "finishOrder": [
+        5,
+        4,
+        6,
+        1,
+        3,
+        2
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 5,
+          "team": "Matilde Caixinha / Carlota Varela",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 4,
+          "team": "Carolina Campos / Ricardo Rosa",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 6,
+          "team": "Manuel Champalimaud / António Barros",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 1,
+          "team": "Manuel Diniz / Sebastião Catanho",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 3,
+          "team": "Cristina Costa / Bárbara Simões",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 2,
+          "team": "António Manuel Baio / José Luís Torres",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R1G2",
+      "race": 1,
+      "group": 2,
+      "finishOrder": [
+        1,
+        2,
+        4,
+        6,
+        3,
+        5
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 1,
+          "team": "Mário Drummond Borges / Mafalda Neto",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 2,
+          "team": "Vasco Soares / Matilde Boto",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 4,
+          "team": "João Ramada / Joana Dinis",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 6,
+          "team": "Manuel Caetano Mariano / Rui Pedro",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 3,
+          "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 5,
+          "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R1G3",
+      "race": 1,
+      "group": 3,
+      "finishOrder": [
+        6,
+        1,
+        2,
+        4,
+        3,
+        5
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 6,
+          "team": "José Teixeira / João Teixeira",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 1,
+          "team": "Filipe Loureiro / Tiago Marcelino",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 2,
+          "team": "Mafalda Paquete / Tiago Rodrigues",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 4,
+          "team": "Pedro Teixeira / Susana Maria",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 3,
+          "team": "Nuno Azevedo / Miguel Campos",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 5,
+          "team": "Arina Osypova / Joana Duarte",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R2G1",
+      "race": 2,
+      "group": 1,
+      "finishOrder": [
+        5,
+        4,
+        3,
+        1,
+        6,
+        2
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 5,
+          "team": "Matilde Caixinha / Carlota Varela",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 4,
+          "team": "Carolina Campos / Ricardo Rosa",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 3,
+          "team": "Cristina Costa / Bárbara Simões",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 1,
+          "team": "Manuel Diniz / Sebastião Catanho",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 6,
+          "team": "Manuel Champalimaud / António Barros",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 2,
+          "team": "António Manuel Baio / José Luís Torres",
+          "points": 6
+        }
+      ]
+    },
+    {
+      "key": "R2G2",
+      "race": 2,
+      "group": 2,
+      "finishOrder": [
+        1,
+        2,
+        6,
+        4,
+        5,
+        3
+      ],
+      "results": [
+        {
+          "position": 1,
+          "boat": 1,
+          "team": "Mário Drummond Borges / Mafalda Neto",
+          "points": 1
+        },
+        {
+          "position": 2,
+          "boat": 2,
+          "team": "Vasco Soares / Matilde Boto",
+          "points": 2
+        },
+        {
+          "position": 3,
+          "boat": 6,
+          "team": "Manuel Caetano Mariano / Rui Pedro",
+          "points": 3
+        },
+        {
+          "position": 4,
+          "boat": 4,
+          "team": "João Ramada / Joana Dinis",
+          "points": 4
+        },
+        {
+          "position": 5,
+          "boat": 5,
+          "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "points": 5
+        },
+        {
+          "position": 6,
+          "boat": 3,
+          "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "points": 6
+        }
+      ]
+    }
+  ],
+  "raceBoatMaps": {
+    "R1G1": {
+      "1": "Manuel Diniz / Sebastião Catanho",
+      "2": "António Manuel Baio / José Luís Torres",
+      "3": "Cristina Costa / Bárbara Simões",
+      "4": "Carolina Campos / Ricardo Rosa",
+      "5": "Matilde Caixinha / Carlota Varela",
+      "6": "Manuel Champalimaud / António Barros"
+    },
+    "R2G1": {
+      "1": "Manuel Diniz / Sebastião Catanho",
+      "2": "António Manuel Baio / José Luís Torres",
+      "3": "Cristina Costa / Bárbara Simões",
+      "4": "Carolina Campos / Ricardo Rosa",
+      "5": "Matilde Caixinha / Carlota Varela",
+      "6": "Manuel Champalimaud / António Barros"
+    },
+    "R1G2": {
+      "1": "Mário Drummond Borges / Mafalda Neto",
+      "2": "Vasco Soares / Matilde Boto",
+      "3": "Hugo Correia Hakenhut / Henrique Teodoro",
+      "4": "João Ramada / Joana Dinis",
+      "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+      "6": "Manuel Caetano Mariano / Rui Pedro"
+    },
+    "R2G2": {
+      "1": "Mário Drummond Borges / Mafalda Neto",
+      "2": "Vasco Soares / Matilde Boto",
+      "3": "Hugo Correia Hakenhut / Henrique Teodoro",
+      "4": "João Ramada / Joana Dinis",
+      "5": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+      "6": "Manuel Caetano Mariano / Rui Pedro"
+    },
+    "R1G3": {
+      "1": "Filipe Loureiro / Tiago Marcelino",
+      "2": "Mafalda Paquete / Tiago Rodrigues",
+      "3": "Nuno Azevedo / Miguel Campos",
+      "4": "Pedro Teixeira / Susana Maria",
+      "5": "Arina Osypova / Joana Duarte",
+      "6": "José Teixeira / João Teixeira"
+    }
+  },
+  "commonRaceNumbers": [
+    1
+  ],
+  "overall": [
+    {
+      "name": "José Teixeira / João Teixeira",
+      "group": 3,
+      "boat": 6,
+      "scores": {
+        "1": 1
+      },
+      "allScores": {
+        "1": 1
+      },
+      "total": 1,
+      "position": 1,
+      "tied": true
+    },
+    {
+      "name": "Mário Drummond Borges / Mafalda Neto",
+      "group": 2,
+      "boat": 1,
+      "scores": {
+        "1": 1
+      },
+      "allScores": {
+        "1": 1,
+        "2": 1
+      },
+      "total": 1,
+      "position": 1,
+      "tied": true
+    },
+    {
+      "name": "Matilde Caixinha / Carlota Varela",
+      "group": 1,
+      "boat": 5,
+      "scores": {
+        "1": 1
+      },
+      "allScores": {
+        "1": 1,
+        "2": 1
+      },
+      "total": 1,
+      "position": 1,
+      "tied": true
+    },
+    {
+      "name": "Carolina Campos / Ricardo Rosa",
+      "group": 1,
+      "boat": 4,
+      "scores": {
+        "1": 2
+      },
+      "allScores": {
+        "1": 2,
+        "2": 2
+      },
+      "total": 2,
+      "position": 4,
+      "tied": true
+    },
+    {
+      "name": "Filipe Loureiro / Tiago Marcelino",
+      "group": 3,
+      "boat": 1,
+      "scores": {
+        "1": 2
+      },
+      "allScores": {
+        "1": 2
+      },
+      "total": 2,
+      "position": 4,
+      "tied": true
+    },
+    {
+      "name": "Vasco Soares / Matilde Boto",
+      "group": 2,
+      "boat": 2,
+      "scores": {
+        "1": 2
+      },
+      "allScores": {
+        "1": 2,
+        "2": 2
+      },
+      "total": 2,
+      "position": 4,
+      "tied": true
+    },
+    {
+      "name": "João Ramada / Joana Dinis",
+      "group": 2,
+      "boat": 4,
+      "scores": {
+        "1": 3
+      },
+      "allScores": {
+        "1": 3,
+        "2": 4
+      },
+      "total": 3,
+      "position": 7,
+      "tied": true
+    },
+    {
+      "name": "Mafalda Paquete / Tiago Rodrigues",
+      "group": 3,
+      "boat": 2,
+      "scores": {
+        "1": 3
+      },
+      "allScores": {
+        "1": 3
+      },
+      "total": 3,
+      "position": 7,
+      "tied": true
+    },
+    {
+      "name": "Manuel Champalimaud / António Barros",
+      "group": 1,
+      "boat": 6,
+      "scores": {
+        "1": 3
+      },
+      "allScores": {
+        "1": 3,
+        "2": 5
+      },
+      "total": 3,
+      "position": 7,
+      "tied": true
+    },
+    {
+      "name": "Manuel Caetano Mariano / Rui Pedro",
+      "group": 2,
+      "boat": 6,
+      "scores": {
+        "1": 4
+      },
+      "allScores": {
+        "1": 4,
+        "2": 3
+      },
+      "total": 4,
+      "position": 10,
+      "tied": true
+    },
+    {
+      "name": "Manuel Diniz / Sebastião Catanho",
+      "group": 1,
+      "boat": 1,
+      "scores": {
+        "1": 4
+      },
+      "allScores": {
+        "1": 4,
+        "2": 4
+      },
+      "total": 4,
+      "position": 10,
+      "tied": true
+    },
+    {
+      "name": "Pedro Teixeira / Susana Maria",
+      "group": 3,
+      "boat": 4,
+      "scores": {
+        "1": 4
+      },
+      "allScores": {
+        "1": 4
+      },
+      "total": 4,
+      "position": 10,
+      "tied": true
+    },
+    {
+      "name": "Cristina Costa / Bárbara Simões",
+      "group": 1,
+      "boat": 3,
+      "scores": {
+        "1": 5
+      },
+      "allScores": {
+        "1": 5,
+        "2": 3
+      },
+      "total": 5,
+      "position": 13,
+      "tied": true
+    },
+    {
+      "name": "Hugo Correia Hakenhut / Henrique Teodoro",
+      "group": 2,
+      "boat": 3,
+      "scores": {
+        "1": 5
+      },
+      "allScores": {
+        "1": 5,
+        "2": 6
+      },
+      "total": 5,
+      "position": 13,
+      "tied": true
+    },
+    {
+      "name": "Nuno Azevedo / Miguel Campos",
+      "group": 3,
+      "boat": 3,
+      "scores": {
+        "1": 5
+      },
+      "allScores": {
+        "1": 5
+      },
+      "total": 5,
+      "position": 13,
+      "tied": true
+    },
+    {
+      "name": "António Manuel Baio / José Luís Torres",
+      "group": 1,
+      "boat": 2,
+      "scores": {
+        "1": 6
+      },
+      "allScores": {
+        "1": 6,
+        "2": 6
+      },
+      "total": 6,
+      "position": 16,
+      "tied": true
+    },
+    {
+      "name": "Arina Osypova / Joana Duarte",
+      "group": 3,
+      "boat": 5,
+      "scores": {
+        "1": 6
+      },
+      "allScores": {
+        "1": 6
+      },
+      "total": 6,
+      "position": 16,
+      "tied": true
+    },
+    {
+      "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+      "group": 2,
+      "boat": 5,
+      "scores": {
+        "1": 6
+      },
+      "allScores": {
+        "1": 6,
+        "2": 5
+      },
+      "total": 6,
+      "position": 16,
+      "tied": true
+    }
+  ],
+  "groups": {
+    "1": {
+      "completedRaces": [
+        1,
+        2
+      ],
+      "standings": [
+        {
+          "name": "Matilde Caixinha / Carlota Varela",
+          "boat": 5,
+          "scores": {
+            "1": 1,
+            "2": 1
+          },
+          "total": 2,
+          "position": 1,
+          "tied": false
+        },
+        {
+          "name": "Carolina Campos / Ricardo Rosa",
+          "boat": 4,
+          "scores": {
+            "1": 2,
+            "2": 2
+          },
+          "total": 4,
+          "position": 2,
+          "tied": false
+        },
+        {
+          "name": "Cristina Costa / Bárbara Simões",
+          "boat": 3,
+          "scores": {
+            "1": 5,
+            "2": 3
+          },
+          "total": 8,
+          "position": 3,
+          "tied": false
+        },
+        {
+          "name": "Manuel Champalimaud / António Barros",
+          "boat": 6,
+          "scores": {
+            "1": 3,
+            "2": 5
+          },
+          "total": 8,
+          "position": 4,
+          "tied": false
+        },
+        {
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "boat": 1,
+          "scores": {
+            "1": 4,
+            "2": 4
+          },
+          "total": 8,
+          "position": 5,
+          "tied": false
+        },
+        {
+          "name": "António Manuel Baio / José Luís Torres",
+          "boat": 2,
+          "scores": {
+            "1": 6,
+            "2": 6
+          },
+          "total": 12,
+          "position": 6,
+          "tied": false
+        }
+      ]
+    },
+    "2": {
+      "completedRaces": [
+        1,
+        2
+      ],
+      "standings": [
+        {
+          "name": "Mário Drummond Borges / Mafalda Neto",
+          "boat": 1,
+          "scores": {
+            "1": 1,
+            "2": 1
+          },
+          "total": 2,
+          "position": 1,
+          "tied": false
+        },
+        {
+          "name": "Vasco Soares / Matilde Boto",
+          "boat": 2,
+          "scores": {
+            "1": 2,
+            "2": 2
+          },
+          "total": 4,
+          "position": 2,
+          "tied": false
+        },
+        {
+          "name": "Manuel Caetano Mariano / Rui Pedro",
+          "boat": 6,
+          "scores": {
+            "1": 4,
+            "2": 3
+          },
+          "total": 7,
+          "position": 3,
+          "tied": false
+        },
+        {
+          "name": "João Ramada / Joana Dinis",
+          "boat": 4,
+          "scores": {
+            "1": 3,
+            "2": 4
+          },
+          "total": 7,
+          "position": 4,
+          "tied": false
+        },
+        {
+          "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "boat": 5,
+          "scores": {
+            "1": 6,
+            "2": 5
+          },
+          "total": 11,
+          "position": 5,
+          "tied": false
+        },
+        {
+          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "boat": 3,
+          "scores": {
+            "1": 5,
+            "2": 6
+          },
+          "total": 11,
+          "position": 6,
+          "tied": false
+        }
+      ]
+    },
+    "3": {
+      "completedRaces": [
+        1
+      ],
+      "standings": [
+        {
+          "name": "José Teixeira / João Teixeira",
+          "boat": 6,
+          "scores": {
+            "1": 1
+          },
+          "total": 1,
+          "position": 1,
+          "tied": false
+        },
+        {
+          "name": "Filipe Loureiro / Tiago Marcelino",
+          "boat": 1,
+          "scores": {
+            "1": 2
+          },
+          "total": 2,
+          "position": 2,
+          "tied": false
+        },
+        {
+          "name": "Mafalda Paquete / Tiago Rodrigues",
+          "boat": 2,
+          "scores": {
+            "1": 3
+          },
+          "total": 3,
+          "position": 3,
+          "tied": false
+        },
+        {
+          "name": "Pedro Teixeira / Susana Maria",
+          "boat": 4,
+          "scores": {
+            "1": 4
+          },
+          "total": 4,
+          "position": 4,
+          "tied": false
+        },
+        {
+          "name": "Nuno Azevedo / Miguel Campos",
+          "boat": 3,
+          "scores": {
+            "1": 5
+          },
+          "total": 5,
+          "position": 5,
+          "tied": false
+        },
+        {
+          "name": "Arina Osypova / Joana Duarte",
+          "boat": 5,
+          "scores": {
+            "1": 6
+          },
+          "total": 6,
+          "position": 6,
+          "tied": false
+        }
+      ]
+    }
+  },
+  "pending": [
+    {
+      "key": "R2G3",
+      "race": 2,
+      "group": 3,
+      "entered": 5
+    }
+  ]
+}
