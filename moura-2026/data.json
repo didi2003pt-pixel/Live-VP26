@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T16:46:00.000Z",
+    "syncedAt": "2026-10-17T18:30:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Print validado da Sheet2"
+    "basis": "Tabela de repescagem validada pelo árbitro"
   },
   "maxRace": 6,
   "teams": [
@@ -2158,5 +2158,102 @@
       ]
     }
   },
-  "pending": []
+  "pending": [],
+  "phases": {
+    "repescagem": {
+      "status": "ready",
+      "title": "Repescagem",
+      "raceCount": 3,
+      "advanceCount": 3,
+      "scoring": "low_point_no_discards",
+      "entrants": [
+        {
+          "boat": 1,
+          "name": "António Manuel Baio / José Luís Torres"
+        },
+        {
+          "boat": 2,
+          "name": "Clara Correia Hakenhut / Maria Correia Wakenhut"
+        },
+        {
+          "boat": 3,
+          "name": "Hugo Correia Hakenhut / Henrique Teodoro"
+        },
+        {
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho"
+        },
+        {
+          "boat": 5,
+          "name": "Arina Osypova / Joana Duarte"
+        },
+        {
+          "boat": 6,
+          "name": "Filipe Loureiro / Tiago Marcelino"
+        }
+      ],
+      "races": [],
+      "standings": [
+        {
+          "position": null,
+          "tied": false,
+          "boat": 1,
+          "name": "António Manuel Baio / José Luís Torres",
+          "scores": {},
+          "total": null
+        },
+        {
+          "position": null,
+          "tied": false,
+          "boat": 2,
+          "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "scores": {},
+          "total": null
+        },
+        {
+          "position": null,
+          "tied": false,
+          "boat": 3,
+          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "scores": {},
+          "total": null
+        },
+        {
+          "position": null,
+          "tied": false,
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "scores": {},
+          "total": null
+        },
+        {
+          "position": null,
+          "tied": false,
+          "boat": 5,
+          "name": "Arina Osypova / Joana Duarte",
+          "scores": {},
+          "total": null
+        },
+        {
+          "position": null,
+          "tied": false,
+          "boat": 6,
+          "name": "Filipe Loureiro / Tiago Marcelino",
+          "scores": {},
+          "total": null
+        }
+      ],
+      "note": "Composição e barcos publicados para a repescagem. Sem resultados registados."
+    },
+    "semifinais": {
+      "status": "withheld",
+      "title": "Semifinais",
+      "note": "Composição/seeding não publicado nesta página até autorização da Comissão de Regatas."
+    },
+    "final": {
+      "status": "format_only",
+      "title": "Final",
+      "note": "Formato publicado nas Instruções de Regata; participantes serão adicionados quando oficialmente definidos."
+    }
+  }
 }
