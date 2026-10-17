@@ -172,8 +172,7 @@ function buildData(sheet1Text,sheet2Text,previous) {
   const allRaceNumbers=[...new Set(sourceRows.map(r=>r.race))].sort((a,b)=>a-b);
   const teamNames=[...new Set(teams.map(t=>t.name))];
 
-  // Scoring rule: NO DISCARDS. Every fully valid round is added to the total.
-  // An overall round becomes valid only when every group has a complete result AND
+  // An overall round only counts when every group has a complete result AND
   // those group results cover all 18 teams exactly once.
   const commonRaceNumbers=allRaceNumbers.filter(raceNo=>{
     const recs=EXPECTED_GROUPS.map(g=>races.find(r=>r.race===raceNo&&r.group===g));
@@ -201,11 +200,17 @@ function buildData(sheet1Text,sheet2Text,previous) {
       ? commonRaceNumbers.reduce((s,r)=>s+Number(scores[String(r)]),0)
       : null;
     const current=teams.find(t=>t.name===name);
+    const allScores={};
+    for (const [r,groups] of Object.entries(scoreByTeamRace[name]||{})) {
+      const vals=Object.values(groups);
+      if (vals.length===1) allScores[r]=vals[0];
+    }
     return {
       name,
       group:current?.group ?? null,
       boat:current?.boat ?? null,
       scores,
+      allScores,
       total
     };
   });
@@ -244,7 +249,7 @@ function buildData(sheet1Text,sheet2Text,previous) {
     .map(r=>({key:r.key,race:r.race,group:r.group,entered:r.entered}));
 
   return {
-    schema:2,
+    schema:1,
     event:{
       name:'Circuito Nacional de Vela em Águas Interiores 2026',
       stage:'4.ª Etapa — Moura / Alqueva',
@@ -257,12 +262,6 @@ function buildData(sheet1Text,sheet2Text,previous) {
       readOnly:true,
       syncedAt:now,
       refreshMinutes:5
-    },
-    scoring:{
-      method:'sum_all',
-      discards:0,
-      lowerIsBetter:true,
-      description:'Somatório de todas as regatas válidas. Sem descartes.'
     },
     maxRace,
     teams,
