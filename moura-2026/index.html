@@ -209,7 +209,7 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
       <header class="brandrow">
         <div class="org left">Apoio institucional<strong>Câmara Municipal de Moura</strong></div>
         <div class="event">
-          <div class="kicker">Resultados em atualização automática</div>
+          <div class="kicker">Resultados atualizados por validação</div>
           <h1>Circuito Nacional de Vela em Águas Interiores 2026</h1>
           <div class="stage">4.ª Etapa · Moura / Alqueva · K420</div>
         </div>
@@ -238,7 +238,7 @@ tbody tr:nth-child(even) td.total{background:#edf2f5}
 
       <footer class="footer">
         <div>Circuito Nacional de Vela em Águas Interiores · 4.ª Etapa · Moura / Alqueva</div>
-        <div>Dados lidos automaticamente do ficheiro oficial · original não é alterado</div>
+        <div>Dados atualizados a partir do registo oficial · Excel original não é alterado</div>
       </footer>
     </div>
   </section>
@@ -332,7 +332,7 @@ function cardsHTML(rows,overall){
 function render(){
   if(!DATA)return;
   renderSummary();
-  document.getElementById('updated').textContent='Última leitura do Excel: '+fmtTime(DATA.source?.syncedAt);
+  document.getElementById('updated').textContent='Última atualização validada: '+fmtTime(DATA.source?.syncedAt);
   const content=document.getElementById('content');
 
   let rows=[],title='',subtitle='',overall=false,group=null;
@@ -362,7 +362,7 @@ async function loadData(manual=false){
     if(!next?.teams||!next?.source)throw new Error('Dados inválidos');
     DATA=next;
     localStorage.setItem(CACHE_KEY,JSON.stringify(next));
-    setConnection('live','Ligação ativa · atualização ~5 min');
+    setConnection('live','Atualização manual validada');
     document.getElementById('error').classList.remove('show');
     render();
   }catch(err){
