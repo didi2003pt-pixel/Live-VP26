@@ -36,8 +36,23 @@ jobs:
           npm install playwright@1.55.0 >/dev/null
           npx playwright install --with-deps chromium
 
-      - name: Read Excel and publish data
+      - name: Read Excel and prepare data
         run: node moura-2026/sync.mjs
+
+      - name: Publish latest data safely
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          CONTENT=$(base64 -w0 moura-2026/data.json)
+          SHA=$(gh api "repos/$REPO/contents/moura-2026/data.json?ref=main" --jq '.sha')
+          gh api --method PUT "repos/$REPO/contents/moura-2026/data.json" \
+            -f message='Update Moura live results [skip ci]' \
+            -f content="$CONTENT" \
+            -f sha="$SHA" \
+            -f branch='main' >/dev/null
+          echo "Published moura-2026/data.json"
 
       - name: Upload debug screenshot on failure
         if: failure()
