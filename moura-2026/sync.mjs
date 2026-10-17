@@ -10,39 +10,35 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129 Safari/537.36'
 });
 const page = await context.newPage();
-page.setDefaultTimeout(20000);
-
-console.log('OPEN', url);
+page.setDefaultTimeout(25000);
 await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 await page.waitForTimeout(12000);
 
-console.log('TITLE', await page.title());
-console.log('URL', page.url());
-console.log('FRAME_COUNT', page.frames().length);
+const excel = page.frames().find(f => f.url().includes('excel.officeapps.live.com'));
+if (!excel) throw new Error('Excel frame not found');
 
-let idx=0;
-for (const frame of page.frames()) {
-  let text='';
-  let roles=[];
-  try { text=(await frame.locator('body').innerText()).slice(0,12000); } catch {}
-  try {
-    roles=await frame.locator('[role]').evaluateAll((els)=>els.slice(0,800).map((el)=>({
-      role:el.getAttribute('role'),
-      text:(el.innerText||el.textContent||'').trim().slice(0,160),
-      label:el.getAttribute('aria-label'),
-      row:el.getAttribute('aria-rowindex'),
-      col:el.getAttribute('aria-colindex'),
-      title:el.getAttribute('title')
-    })).filter(x=>x.text||x.label||x.title));
-  } catch {}
-  console.log('FRAME', idx++, frame.url());
-  console.log('FRAME_TEXT_START');
-  console.log(text);
-  console.log('FRAME_TEXT_END');
-  console.log('FRAME_ROLES_START');
-  console.log(JSON.stringify(roles,null,2).slice(0,40000));
-  console.log('FRAME_ROLES_END');
+async function copyRange(sheet, range) {
+  await excel.getByRole('tab', { name: new RegExp('Folha de cálculo ' + sheet, 'i') }).click();
+  await page.waitForTimeout(1200);
+  const nameBox = excel.getByRole('combobox', { name: /Caixa de Nome/i });
+  await nameBox.click();
+  await nameBox.fill(range);
+  await nameBox.press('Enter');
+  await page.waitForTimeout(800);
+  const grid = excel.getByRole('textbox', { name: 'grid' });
+  await grid.focus();
+  await grid.press('Control+c');
+  await page.waitForTimeout(900);
+  let clip='';
+  try { clip = await excel.evaluate(() => navigator.clipboard.readText()); }
+  catch (e) { clip = 'CLIPBOARD_ERROR: ' + String(e); }
+  console.log('COPY_'+sheet+'_START');
+  console.log(clip);
+  console.log('COPY_'+sheet+'_END');
+  return clip;
 }
 
+await copyRange('Sheet1','B1:D19');
+await copyRange('Sheet2','B1:H19');
 await page.screenshot({ path: 'moura-2026/debug.png', fullPage: false });
 await browser.close();
