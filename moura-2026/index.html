@@ -500,23 +500,32 @@ function finalView(){
   const races=[1,2,3,4,5,6,7];
   const rows=phase.standings||[];
   const head=['Pos.','Equipa','Barco'].concat(races.map(r=>'R'+r)).concat(['Vitórias']);
-  const body=rows.map(row=>'<tr>'+
-    '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
-    '<td class="team">'+esc(row.name)+'</td>'+
-    '<td>Barco '+(row.boat??'—')+'</td>'+
-    races.map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
-    '<td class="total">'+(row.wins??0)+'</td>'+
-  '</tr>').join('');
-  const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
-    '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
-    '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
-    '<div class="card-total"><small>Vitórias</small><strong>'+(row.wins??0)+'</strong></div>'+
-    '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
+  const body=rows.map(row=>{
+    const champion=phase.status==='complete' && row.champion===true;
+    return '<tr class="'+(champion?'rank1 zone':'')+'">'+
+      '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+      '<td class="team">'+esc(row.name)+(champion?'<span class="zone-badge">Vencedora</span>':'')+'</td>'+
+      '<td>Barco '+(row.boat??'—')+'</td>'+
+      races.map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
+      '<td class="total">'+(row.wins??0)+'</td>'+
+    '</tr>';
+  }).join('');
+  const cards='<div class="mobile-list">'+rows.map(row=>{
+    const champion=phase.status==='complete' && row.champion===true;
+    return '<article class="card '+(champion?'rank1 zone':'')+'"><div class="card-head">'+
+      '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div>'+(champion?'<span class="card-zone">Vencedora da Final</span>':'')+'</div>'+
+      '<div class="card-total"><small>Vitórias</small><strong>'+(row.wins??0)+'</strong></div>'+
+      '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>';
+  }).join('')+'</div>';
   const status=phase.status==='ready'?'Composição oficial publicada':(phase.status==='complete'?'Final concluída':'Final em curso');
+  const legend=phase.status==='complete'
+    ?'Final encerrada após 2 regatas: Matilde Caixinha / Carlota Varela venceram R1 e R2 e atingiram as 2 vitórias necessárias. Os restantes lugares são ordenados pela pontuação baixa e desempates aplicáveis.'
+    :'Composição da Final publicada. Não existem resultados registados enquanto as células R1–R7 estiverem a “—”.';
   return '<div class="section-head"><div><h2>Final</h2><p>6 equipas · até 7 regatas previstas · vence a primeira equipa a atingir 2 vitórias</p></div><div class="section-tag">'+status+'</div></div>'+
     '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
     cards+
-    '<div class="legend">Composição da Final publicada. Não existem resultados registados enquanto as células R1–R7 estiverem a “—”.</div>';
+    '<div class="legend">'+legend+'</div>';
 }
 
 function render(){
