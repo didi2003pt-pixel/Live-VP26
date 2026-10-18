@@ -422,24 +422,38 @@ function semifinaisView(){
   const groupCards=[1,2,3].map(group=>{
     const info=phase.groups?.[String(group)];
     const rows=info?.standings||[];
+    const complete=info?.status==='complete'||info?.closed===true;
     const head=['Pos.','Equipa','Barco','R1','R2','R3','R4','Total'];
-    const body=rows.map(row=>'<tr>'+
-      '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
-      '<td class="team">'+esc(row.name)+'</td>'+
-      '<td>Barco '+(row.boat??'—')+'</td>'+
-      [1,2,3,4].map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
-      '<td class="total">'+(row.total??'—')+'</td>'+
-    '</tr>').join('');
-    const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
-      '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
-      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
-      '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
-      '</div><div class="card-scores">'+[1,2,3,4].map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
-    return '<section style="margin-top:14px"><div class="section-head"><div><h2>Semifinal · Grupo '+group+'</h2><p>4 regatas · 2 melhores equipas avançam para a Final · sem descartes</p></div><div class="section-tag">Barcos 1 · 2 · 4 · 5 · 6</div></div>'+
+    const body=rows.map(row=>{
+      const qualified=complete && row.position!=null && row.position<=2;
+      const cls=[qualified?'zone':'',row.position===2&&qualified?'cutoff':''].filter(Boolean).join(' ');
+      return '<tr class="'+cls+'">'+
+        '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+        '<td class="team">'+esc(row.name)+(qualified?'<span class="zone-badge">Apurada</span>':'')+'</td>'+
+        '<td>Barco '+(row.boat??'—')+'</td>'+
+        [1,2,3,4].map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
+        '<td class="total">'+(row.total??'—')+'</td>'+
+      '</tr>';
+    }).join('');
+    const cards='<div class="mobile-list">'+rows.map(row=>{
+      const qualified=complete && row.position!=null && row.position<=2;
+      return '<article class="card '+(qualified?'zone':'')+'"><div class="card-head">'+
+        '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+        '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div>'+(qualified?'<span class="card-zone">Apurada para a Final</span>':'')+'</div>'+
+        '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
+        '</div><div class="card-scores">'+[1,2,3,4].map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>';
+    }).join('')+'</div>';
+    const subtitle=complete?'Grupo concluído · 4 regatas · 2 equipas apuradas para a Final · sem descartes':'4 regatas · 2 melhores equipas avançam para a Final · sem descartes';
+    const tag=complete?'Grupo concluído':'Barcos 1 · 2 · 4 · 5 · 6';
+    return '<section style="margin-top:14px"><div class="section-head"><div><h2>Semifinal · Grupo '+group+'</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
       '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
       cards+'</section>';
   }).join('');
-  return '<div class="section-head"><div><h2>Semifinais</h2><p>Composição oficial publicada. Resultados ainda não iniciados.</p></div><div class="section-tag">3 grupos</div></div>'+
+  const completed=[1,2,3].filter(group=>{
+    const info=phase.groups?.[String(group)];
+    return info?.status==='complete'||info?.closed===true;
+  }).length;
+  return '<div class="section-head"><div><h2>Semifinais</h2><p>'+completed+' de 3 grupos concluídos.</p></div><div class="section-tag">3 grupos</div></div>'+
     '<div class="notice show">Os barcos foram corrigidos para a mesma sequência em todos os grupos: 1 · 2 · 4 · 5 · 6.</div>'+
     groupCards+
     '<div class="legend">Só serão publicados resultados das semifinais quando forem recebidos e validados. Os 2 primeiros de cada grupo avançam para a Final.</div>';
