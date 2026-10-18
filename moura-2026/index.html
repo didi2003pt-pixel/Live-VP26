@@ -243,7 +243,7 @@ tbody tr.zone:nth-child(even) td{background:#eef8f2}
       <div class="meta">
         <span class="badge live">● RESULTADOS</span>
         <span class="badge provisional">Provisórios</span>
-        <span class="badge">Fase: Qualificação</span>
+        <span class="badge" id="phaseBadge">Fase: Qualificação</span>
         <span class="badge">Sem descartes</span>
         <span class="badge">17–18 outubro 2026</span>
         <span class="updated" id="updated">A carregar dados…</span>
@@ -416,7 +416,7 @@ function repescagemView(){
 
 function semifinaisView(){
   const phase=DATA.phases?.semifinais;
-  if(!phase || phase.status!=='ready'){
+  if(!phase || !['ready','in_progress','complete'].includes(phase.status)){
     return '<div class="phase-card"><h3>Semifinais</h3><p>A aguardar publicação oficial da composição.</p></div>';
   }
   const groupCards=[1,2,3].map(group=>{
@@ -453,6 +453,12 @@ function render(){
   if(!DATA)return;
   renderSummary();
   document.getElementById('updated').textContent='Última atualização validada: '+fmtTime(DATA.source?.syncedAt);
+  const phaseBadge=document.getElementById('phaseBadge');
+  if(phaseBadge){
+    const semiStatus=DATA.phases?.semifinais?.status;
+    const repStatus=DATA.phases?.repescagem?.status;
+    phaseBadge.textContent=['ready','in_progress','complete'].includes(semiStatus)?'Fase: Semifinais':(repStatus==='complete'?'Fase: Repescagem concluída':'Fase: Qualificação');
+  }
   const content=document.getElementById('content');
 
   if(currentView==='qual'){
