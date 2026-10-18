@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T11:54:00.000Z",
+    "syncedAt": "2026-10-18T12:22:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Print validado da Semifinal — R2 G2"
+    "basis": "Print validado da Semifinal — R1 e R2 G3"
   },
   "maxRace": 6,
   "teams": [
@@ -2819,52 +2819,154 @@
               "name": "Clara Correia Hakenhut / Maria Correia Wakenhut"
             }
           ],
-          "races": [],
+          "races": [
+            {
+              "race": 1,
+              "key": "SF-R1G3",
+              "finishOrder": [
+                4,
+                6,
+                2,
+                5,
+                1
+              ],
+              "results": [
+                {
+                  "position": 1,
+                  "boat": 4,
+                  "team": "Carolina Campos / Ricardo Rosa",
+                  "points": 1
+                },
+                {
+                  "position": 2,
+                  "boat": 6,
+                  "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+                  "points": 2
+                },
+                {
+                  "position": 3,
+                  "boat": 2,
+                  "team": "Mário Drummond Borges / Mafalda Neto",
+                  "points": 3
+                },
+                {
+                  "position": 4,
+                  "boat": 5,
+                  "team": "Nuno Azevedo / Miguel Campos",
+                  "points": 4
+                },
+                {
+                  "position": 5,
+                  "boat": 1,
+                  "team": "Pedro Teixeira / Susana Maria",
+                  "points": 5
+                }
+              ]
+            },
+            {
+              "race": 2,
+              "key": "SF-R2G3",
+              "finishOrder": [
+                4,
+                5,
+                2,
+                6,
+                1
+              ],
+              "results": [
+                {
+                  "position": 1,
+                  "boat": 4,
+                  "team": "Carolina Campos / Ricardo Rosa",
+                  "points": 1
+                },
+                {
+                  "position": 2,
+                  "boat": 5,
+                  "team": "Nuno Azevedo / Miguel Campos",
+                  "points": 2
+                },
+                {
+                  "position": 3,
+                  "boat": 2,
+                  "team": "Mário Drummond Borges / Mafalda Neto",
+                  "points": 3
+                },
+                {
+                  "position": 4,
+                  "boat": 6,
+                  "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+                  "points": 4
+                },
+                {
+                  "position": 5,
+                  "boat": 1,
+                  "team": "Pedro Teixeira / Susana Maria",
+                  "points": 5
+                }
+              ]
+            }
+          ],
           "standings": [
             {
-              "position": null,
-              "tied": false,
-              "boat": 1,
-              "name": "Pedro Teixeira / Susana Maria",
-              "scores": {},
-              "total": null
-            },
-            {
-              "position": null,
-              "tied": false,
-              "boat": 2,
-              "name": "Mário Drummond Borges / Mafalda Neto",
-              "scores": {},
-              "total": null
-            },
-            {
-              "position": null,
+              "position": 1,
               "tied": false,
               "boat": 4,
               "name": "Carolina Campos / Ricardo Rosa",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 1,
+                "2": 1
+              },
+              "total": 2
             },
             {
-              "position": null,
+              "position": 2,
               "tied": false,
               "boat": 5,
               "name": "Nuno Azevedo / Miguel Campos",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 4,
+                "2": 2
+              },
+              "total": 6
             },
             {
-              "position": null,
+              "position": 3,
               "tied": false,
               "boat": 6,
               "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 2,
+                "2": 4
+              },
+              "total": 6
+            },
+            {
+              "position": 4,
+              "tied": false,
+              "boat": 2,
+              "name": "Mário Drummond Borges / Mafalda Neto",
+              "scores": {
+                "1": 3,
+                "2": 3
+              },
+              "total": 6
+            },
+            {
+              "position": 5,
+              "tied": false,
+              "boat": 1,
+              "name": "Pedro Teixeira / Susana Maria",
+              "scores": {
+                "1": 5,
+                "2": 5
+              },
+              "total": 10
             }
           ]
         }
       },
-      "note": "Semifinais em curso. Grupo 1 com R1-R2 validadas; Grupo 2 com R1-R2 validadas; restantes resultados ainda não publicados."
+      "note": "Semifinais em curso. Grupo 1 com R1-R2 validadas; Grupo 2 com R1-R2 validadas; Grupo 3 com R1-R2 validadas; restantes resultados ainda não publicados."
     },
     "final": {
       "status": "format_only",
