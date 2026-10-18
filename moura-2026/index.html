@@ -298,22 +298,55 @@ function maxRace(){return Math.max(6,Number(DATA?.maxRace)||6)}
 
 function renderSummary(){
   const pending=DATA.pending||[];
-  document.getElementById('summary').innerHTML=[
-    ['Qualificação','3 grupos','4 melhores de cada grupo avançam'],
-    ['Grupo 1',completedFor(1)+'/6','regatas disputadas'],
-    ['Grupo 2',completedFor(2)+'/6','regatas disputadas'],
-    ['Grupo 3',completedFor(3)+'/6','regatas disputadas']
-  ].map(([a,b,c])=>'<div class="stat"><small>'+a+'</small><strong>'+b+'</strong><em>'+c+'</em></div>').join('');
+  const finalPhase=DATA.phases?.final;
+  const semiPhase=DATA.phases?.semifinais;
+  const repPhase=DATA.phases?.repescagem;
+  let cards=[];
+  let messages=[];
+
+  if(finalPhase && ['ready','in_progress','complete'].includes(finalPhase.status)){
+    const finalRaces=finalPhase.races?.length||0;
+    cards=[
+      ['Final','6 equipas','barcos 1 a 6'],
+      ['Regatas',finalRaces+'/7','resultados publicados'],
+      ['Semifinais','3/3','grupos concluídos'],
+      ['Formato','2 vitórias','para vencer a Final']
+    ];
+    if(finalPhase.status==='ready') messages.push('Final preparada. Composição oficial publicada; ainda sem resultados.');
+    else if(finalPhase.status==='in_progress') messages.push('Final em curso: '+finalRaces+' regata'+(finalRaces===1?'':'s')+' publicada'+(finalRaces===1?'':'s')+'.');
+    else messages.push('Final concluída.');
+  }else if(semiPhase && ['ready','in_progress','complete'].includes(semiPhase.status)){
+    const completed=[1,2,3].filter(g=>semiPhase.groups?.[String(g)]?.status==='complete').length;
+    cards=[
+      ['Semifinais',completed+'/3','grupos concluídos'],
+      ['Grupo 1',(semiPhase.groups?.['1']?.races?.length||0)+'/4','regatas'],
+      ['Grupo 2',(semiPhase.groups?.['2']?.races?.length||0)+'/4','regatas'],
+      ['Grupo 3',(semiPhase.groups?.['3']?.races?.length||0)+'/4','regatas']
+    ];
+    messages.push(completed===3?'Semifinais concluídas nos três grupos.':'Semifinais em curso.');
+  }else if(repPhase && ['ready','in_progress','complete'].includes(repPhase.status)){
+    cards=[
+      ['Repescagem',(repPhase.races?.length||0)+'/3','regatas'],
+      ['Apuramento',repPhase.status==='complete'?'3 equipas':'em curso','para a semifinal'],
+      ['Qualificação','concluída','3 grupos'],
+      ['Formato','sem descartes','pontuação baixa']
+    ];
+    messages.push(repPhase.status==='complete'?'Repescagem concluída.':'Repescagem em curso.');
+  }else{
+    cards=[
+      ['Qualificação','3 grupos','4 melhores de cada grupo avançam'],
+      ['Grupo 1',completedFor(1)+'/6','regatas disputadas'],
+      ['Grupo 2',completedFor(2)+'/6','regatas disputadas'],
+      ['Grupo 3',completedFor(3)+'/6','regatas disputadas']
+    ];
+    const incomplete=[1,2,3].filter(g=>completedFor(g)<6);
+    messages.push(incomplete.length?'Qualificação em curso: '+incomplete.map(g=>'Grupo '+g+' com '+completedFor(g)+'/6').join(' · ')+'.':'Qualificação completa nos três grupos.');
+  }
+
+  document.getElementById('summary').innerHTML=cards.map(([a,b,c])=>'<div class="stat"><small>'+a+'</small><strong>'+b+'</strong><em>'+c+'</em></div>').join('');
 
   const notice=document.getElementById('notice');
-  let messages=[];
-  if(pending.length) messages.push(pending.map(p=>p.key+' em preenchimento ('+p.entered+'/6)').join(' · '));
-  const incomplete=[1,2,3].filter(g=>completedFor(g)<6);
-  if(incomplete.length){
-    messages.push('Qualificação em curso: '+incomplete.map(g=>'Grupo '+g+' com '+completedFor(g)+'/6').join(' · ')+'.');
-  }else{
-    messages.push('Qualificação completa nos três grupos.');
-  }
+  if(pending.length) messages.unshift(pending.map(p=>p.key+' em preenchimento ('+p.entered+'/6)').join(' · '));
   notice.textContent=messages.join(' ');
   notice.classList.add('show');
 }
@@ -459,8 +492,31 @@ function semifinaisView(){
     '<div class="legend">Só serão publicados resultados das semifinais quando forem recebidos e validados. Os 2 primeiros de cada grupo avançam para a Final.</div>';
 }
 
-function phasePlaceholder(view){
-  return '<div class="phase-card"><h3>Final</h3><p><strong>Formato preparado.</strong> A primeira equipa a atingir duas vitórias vence a prova. Os restantes resultados da fase são calculados por pontuação baixa, sem descartes. Os participantes só serão publicados quando estiverem oficialmente definidos.</p></div>';
+function finalView(){
+  const phase=DATA.phases?.final;
+  if(!phase || !['ready','in_progress','complete'].includes(phase.status)){
+    return '<div class="phase-card"><h3>Final</h3><p>A aguardar publicação oficial da composição.</p></div>';
+  }
+  const races=[1,2,3,4,5,6,7];
+  const rows=phase.standings||[];
+  const head=['Pos.','Equipa','Barco'].concat(races.map(r=>'R'+r)).concat(['Vitórias']);
+  const body=rows.map(row=>'<tr>'+
+    '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+    '<td class="team">'+esc(row.name)+'</td>'+
+    '<td>Barco '+(row.boat??'—')+'</td>'+
+    races.map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
+    '<td class="total">'+(row.wins??0)+'</td>'+
+  '</tr>').join('');
+  const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
+    '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+    '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
+    '<div class="card-total"><small>Vitórias</small><strong>'+(row.wins??0)+'</strong></div>'+
+    '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
+  const status=phase.status==='ready'?'Composição oficial publicada':(phase.status==='complete'?'Final concluída':'Final em curso');
+  return '<div class="section-head"><div><h2>Final</h2><p>6 equipas · até 7 regatas previstas · vence a primeira equipa a atingir 2 vitórias</p></div><div class="section-tag">'+status+'</div></div>'+
+    '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
+    cards+
+    '<div class="legend">Composição da Final publicada. Não existem resultados registados enquanto as células R1–R7 estiverem a “—”.</div>';
 }
 
 function render(){
@@ -469,9 +525,10 @@ function render(){
   document.getElementById('updated').textContent='Última atualização validada: '+fmtTime(DATA.source?.syncedAt);
   const phaseBadge=document.getElementById('phaseBadge');
   if(phaseBadge){
+    const finalStatus=DATA.phases?.final?.status;
     const semiStatus=DATA.phases?.semifinais?.status;
     const repStatus=DATA.phases?.repescagem?.status;
-    phaseBadge.textContent=['ready','in_progress','complete'].includes(semiStatus)?'Fase: Semifinais':(repStatus==='complete'?'Fase: Repescagem concluída':'Fase: Qualificação');
+    phaseBadge.textContent=['ready','in_progress','complete'].includes(finalStatus)?'Fase: Final':(['ready','in_progress','complete'].includes(semiStatus)?'Fase: Semifinais':(repStatus==='complete'?'Fase: Repescagem concluída':'Fase: Qualificação'));
   }
   const content=document.getElementById('content');
 
@@ -488,7 +545,7 @@ function render(){
     return;
   }
   if(currentView==='final'){
-    content.innerHTML=phasePlaceholder(currentView);
+    content.innerHTML=finalView();
     return;
   }
 
