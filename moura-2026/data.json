@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T12:22:00.000Z",
+    "syncedAt": "2026-10-18T12:41:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Print validado da Semifinal — R1 e R2 G3"
+    "basis": "Decisão na Semifinal — R2 G2: Cristina Costa / Bárbara Simões DSQ = 6 pontos"
   },
   "maxRace": 6,
   "teams": [
@@ -2699,10 +2699,10 @@
               "key": "SF-R2G2",
               "finishOrder": [
                 5,
-                4,
                 2,
                 6,
-                1
+                1,
+                4
               ],
               "results": [
                 {
@@ -2712,30 +2712,33 @@
                   "points": 1
                 },
                 {
-                  "position": 2,
+                  "position": null,
                   "boat": 4,
                   "team": "Cristina Costa / Bárbara Simões",
+                  "points": 6,
+                  "code": "DSQ",
+                  "scoringAdjustment": "DSQ na R2 G2 — 6 pontos"
+                },
+                {
+                  "position": 2,
+                  "boat": 2,
+                  "team": "Matilde Caixinha / Carlota Varela",
                   "points": 2
                 },
                 {
                   "position": 3,
-                  "boat": 2,
-                  "team": "Matilde Caixinha / Carlota Varela",
+                  "boat": 6,
+                  "team": "João Fonseca / João Teixeira",
                   "points": 3
                 },
                 {
                   "position": 4,
-                  "boat": 6,
-                  "team": "João Fonseca / João Teixeira",
-                  "points": 4
-                },
-                {
-                  "position": 5,
                   "boat": 1,
                   "team": "Manuel Diniz / Sebastião Catanho",
-                  "points": 5
+                  "points": 4
                 }
-              ]
+              ],
+              "note": "R2 G2 ajustada: Cristina Costa / Bárbara Simões DSQ = 6 pontos."
             }
           ],
           "standings": [
@@ -2746,23 +2749,12 @@
               "name": "Matilde Caixinha / Carlota Varela",
               "scores": {
                 "1": 1,
-                "2": 3
+                "2": 2
               },
-              "total": 4
+              "total": 3
             },
             {
               "position": 2,
-              "tied": false,
-              "boat": 4,
-              "name": "Cristina Costa / Bárbara Simões",
-              "scores": {
-                "1": 3,
-                "2": 2
-              },
-              "total": 5
-            },
-            {
-              "position": 3,
               "tied": false,
               "boat": 5,
               "name": "João Ramada / Joana Dinis",
@@ -2773,26 +2765,37 @@
               "total": 6
             },
             {
-              "position": 4,
+              "position": 3,
               "tied": false,
               "boat": 1,
               "name": "Manuel Diniz / Sebastião Catanho",
               "scores": {
                 "1": 2,
-                "2": 5
+                "2": 4
+              },
+              "total": 6
+            },
+            {
+              "position": 4,
+              "tied": false,
+              "boat": 6,
+              "name": "João Fonseca / João Teixeira",
+              "scores": {
+                "1": 4,
+                "2": 3
               },
               "total": 7
             },
             {
               "position": 5,
               "tied": false,
-              "boat": 6,
-              "name": "João Fonseca / João Teixeira",
+              "boat": 4,
+              "name": "Cristina Costa / Bárbara Simões",
               "scores": {
-                "1": 4,
-                "2": 4
+                "1": 3,
+                "2": 6
               },
-              "total": 8
+              "total": 9
             }
           ]
         },
@@ -2966,7 +2969,7 @@
           ]
         }
       },
-      "note": "Semifinais em curso. Grupo 1 com R1-R2 validadas; Grupo 2 com R1-R2 validadas; Grupo 3 com R1-R2 validadas; restantes resultados ainda não publicados."
+      "note": "Semifinais em curso. R2 G2 ajustada por decisão: Cristina Costa / Bárbara Simões DSQ = 6 pontos. Restantes regatas mantidas."
     },
     "final": {
       "status": "format_only",
