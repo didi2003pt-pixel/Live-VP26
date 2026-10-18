@@ -384,23 +384,34 @@ function repescagemView(){
   if(!phase)return '<div class="phase-card"><h3>Repescagem</h3><p>A aguardar informação oficial.</p></div>';
   const races=[1,2,3];
   const rows=phase.standings||[];
+  const isComplete=phase.status==='complete'||phase.closed===true;
   const head=['Pos.','Equipa','Barco','R1','R2','R3','Total'];
-  const body=rows.map(row=>'<tr>'+
-    '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
-    '<td class="team">'+esc(row.name)+'</td>'+
-    '<td>Barco '+(row.boat??'—')+'</td>'+
-    races.map(r=>'<td>'+(row.scores?.[String(r)]??'—')+'</td>').join('')+
-    '<td class="total">'+(row.total??'—')+'</td>'+
-  '</tr>').join('');
-  const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
-    '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
-    '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
-    '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
-    '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
-  return '<div class="section-head"><div><h2>Repescagem</h2><p>3 regatas · as 3 melhores equipas avançam para a semifinal · sem descartes</p></div><div class="section-tag">Composição oficial publicada</div></div>'+
+  const body=rows.map(row=>{
+    const qualified=isComplete && row.position!=null && row.position<=3;
+    const cls=[qualified?'zone':'',row.position===3&&qualified?'cutoff':''].filter(Boolean).join(' ');
+    return '<tr class="'+cls+'">'+
+      '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+      '<td class="team">'+esc(row.name)+(qualified?'<span class="zone-badge">Apurada</span>':'')+'</td>'+
+      '<td>Barco '+(row.boat??'—')+'</td>'+
+      races.map(r=>'<td>'+(row.scores?.[String(r)]??'—')+'</td>').join('')+
+      '<td class="total">'+(row.total??'—')+'</td>'+
+    '</tr>';
+  }).join('');
+  const cards='<div class="mobile-list">'+rows.map(row=>{
+    const qualified=isComplete && row.position!=null && row.position<=3;
+    return '<article class="card '+(qualified?'zone':'')+'"><div class="card-head">'+
+      '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div>'+(qualified?'<span class="card-zone">Apurada para a semifinal</span>':'')+'</div>'+
+      '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
+      '</div><div class="card-scores">'+races.map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>';
+  }).join('')+'</div>';
+  const subtitle=isComplete?'3 regatas concluídas · classificação final · sem descartes':'3 regatas · as 3 melhores equipas avançam para a semifinal · sem descartes';
+  const tag=isComplete?'Repescagem concluída':'Composição oficial publicada';
+  const legend=isComplete?'Resultados finais da repescagem. As 3 primeiras equipas estão apuradas para a semifinal. A composição/seeding das semifinais permanece oculta até autorização da Comissão de Regatas.':'Só serão publicados aqui resultados da repescagem quando forem recebidos e validados. A composição/seeding das semifinais permanece oculta até autorização da Comissão de Regatas.';
+  return '<div class="section-head"><div><h2>Repescagem</h2><p>'+subtitle+'</p></div><div class="section-tag">'+tag+'</div></div>'+
     '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
     cards+
-    '<div class="legend">Só serão publicados aqui resultados da repescagem quando forem recebidos e validados. A composição/seeding das semifinais permanece oculta até autorização da Comissão de Regatas.</div>';
+    '<div class="legend">'+legend+'</div>';
 }
 
 function phasePlaceholder(view){
