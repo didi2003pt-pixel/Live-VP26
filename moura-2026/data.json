@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T12:41:00.000Z",
+    "syncedAt": "2026-10-18T12:51:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Decisão na Semifinal — R2 G2: Cristina Costa / Bárbara Simões DSQ = 6 pontos"
+    "basis": "Print validado da Semifinal — R3 e R4 G1; Grupo 1 encerrado"
   },
   "maxRace": 6,
   "teams": [
@@ -2567,41 +2567,133 @@
                   "points": 5
                 }
               ]
+            },
+            {
+              "race": 3,
+              "key": "SF-R3G1",
+              "finishOrder": [
+                5,
+                6,
+                4,
+                1,
+                2
+              ],
+              "results": [
+                {
+                  "position": 1,
+                  "boat": 5,
+                  "team": "Vasco Soares / Matilde Boto",
+                  "points": 1
+                },
+                {
+                  "position": 2,
+                  "boat": 6,
+                  "team": "Filipe Loureiro / Tiago Marcelino",
+                  "points": 2
+                },
+                {
+                  "position": 3,
+                  "boat": 4,
+                  "team": "Manuel Champalimaud / António Barros",
+                  "points": 3
+                },
+                {
+                  "position": 4,
+                  "boat": 1,
+                  "team": "Mafalda Paquete / Tiago Rodrigues",
+                  "points": 4
+                },
+                {
+                  "position": 5,
+                  "boat": 2,
+                  "team": "Manuel Caetano Mariano / Rui Pedro",
+                  "points": 5
+                }
+              ]
+            },
+            {
+              "race": 4,
+              "key": "SF-R4G1",
+              "finishOrder": [
+                4,
+                2,
+                5,
+                1,
+                6
+              ],
+              "results": [
+                {
+                  "position": 1,
+                  "boat": 4,
+                  "team": "Manuel Champalimaud / António Barros",
+                  "points": 1
+                },
+                {
+                  "position": 2,
+                  "boat": 2,
+                  "team": "Manuel Caetano Mariano / Rui Pedro",
+                  "points": 2
+                },
+                {
+                  "position": 3,
+                  "boat": 5,
+                  "team": "Vasco Soares / Matilde Boto",
+                  "points": 3
+                },
+                {
+                  "position": 4,
+                  "boat": 1,
+                  "team": "Mafalda Paquete / Tiago Rodrigues",
+                  "points": 4
+                },
+                {
+                  "position": 5,
+                  "boat": 6,
+                  "team": "Filipe Loureiro / Tiago Marcelino",
+                  "points": 5
+                }
+              ]
             }
           ],
           "standings": [
             {
               "position": 1,
               "tied": false,
-              "boat": 2,
-              "name": "Manuel Caetano Mariano / Rui Pedro",
-              "scores": {
-                "1": 1,
-                "2": 2
-              },
-              "total": 3
-            },
-            {
-              "position": 2,
-              "tied": false,
               "boat": 5,
               "name": "Vasco Soares / Matilde Boto",
               "scores": {
                 "1": 3,
-                "2": 1
+                "2": 1,
+                "3": 1,
+                "4": 3
               },
-              "total": 4
+              "total": 8
             },
             {
-              "position": 3,
+              "position": 2,
               "tied": false,
               "boat": 4,
               "name": "Manuel Champalimaud / António Barros",
               "scores": {
                 "1": 2,
-                "2": 3
+                "2": 3,
+                "3": 3,
+                "4": 1
               },
-              "total": 5
+              "total": 9
+            },
+            {
+              "position": 3,
+              "tied": false,
+              "boat": 2,
+              "name": "Manuel Caetano Mariano / Rui Pedro",
+              "scores": {
+                "1": 1,
+                "2": 2,
+                "3": 5,
+                "4": 2
+              },
+              "total": 10
             },
             {
               "position": 4,
@@ -2610,9 +2702,11 @@
               "name": "Mafalda Paquete / Tiago Rodrigues",
               "scores": {
                 "1": 4,
-                "2": 4
+                "2": 4,
+                "3": 4,
+                "4": 4
               },
-              "total": 8
+              "total": 16
             },
             {
               "position": 5,
@@ -2621,11 +2715,30 @@
               "name": "Filipe Loureiro / Tiago Marcelino",
               "scores": {
                 "1": 5,
-                "2": 5
+                "2": 5,
+                "3": 2,
+                "4": 5
               },
-              "total": 10
+              "total": 17
             }
-          ]
+          ],
+          "status": "complete",
+          "closed": true,
+          "qualified": [
+            {
+              "position": 1,
+              "boat": 5,
+              "name": "Vasco Soares / Matilde Boto",
+              "total": 8
+            },
+            {
+              "position": 2,
+              "boat": 4,
+              "name": "Manuel Champalimaud / António Barros",
+              "total": 9
+            }
+          ],
+          "note": "Grupo 1 da semifinal concluído após 4 regatas. As 2 melhores equipas estão apuradas para a Final."
         },
         "2": {
           "entrants": [
@@ -2972,7 +3085,7 @@
           ]
         }
       },
-      "note": "Semifinais em curso. R2 G2 ajustada por decisão: Cristina Costa / Bárbara Simões DSQ = 6 pontos. Restantes regatas mantidas."
+      "note": "Semifinais em curso. Grupo 1 concluído; Grupos 2 e 3 ainda em disputa."
     },
     "final": {
       "status": "format_only",
