@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-17T18:30:00.000Z",
+    "syncedAt": "2026-10-18T10:17:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Tabela de repescagem validada pelo árbitro"
+    "basis": "Print validado da Repescagem"
   },
   "maxRace": 6,
   "teams": [
@@ -2161,7 +2161,7 @@
   "pending": [],
   "phases": {
     "repescagem": {
-      "status": "ready",
+      "status": "in_progress",
       "title": "Repescagem",
       "raceCount": 3,
       "advanceCount": 3,
@@ -2192,58 +2192,121 @@
           "name": "Filipe Loureiro / Tiago Marcelino"
         }
       ],
-      "races": [],
+      "races": [
+        {
+          "race": 1,
+          "key": "REP-R1",
+          "finishOrder": [
+            4,
+            2,
+            3,
+            6,
+            1,
+            5
+          ],
+          "results": [
+            {
+              "position": 1,
+              "boat": 4,
+              "team": "Manuel Diniz / Sebastião Catanho",
+              "points": 1
+            },
+            {
+              "position": 2,
+              "boat": 2,
+              "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+              "points": 2
+            },
+            {
+              "position": 3,
+              "boat": 3,
+              "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+              "points": 3
+            },
+            {
+              "position": 4,
+              "boat": 6,
+              "team": "Filipe Loureiro / Tiago Marcelino",
+              "points": 4
+            },
+            {
+              "position": 5,
+              "boat": 1,
+              "team": "António Manuel Baio / José Luís Torres",
+              "points": 5
+            },
+            {
+              "position": 6,
+              "boat": 5,
+              "team": "Arina Osypova / Joana Duarte",
+              "points": 6
+            }
+          ]
+        }
+      ],
       "standings": [
         {
-          "position": null,
-          "tied": false,
-          "boat": 1,
-          "name": "António Manuel Baio / José Luís Torres",
-          "scores": {},
-          "total": null
-        },
-        {
-          "position": null,
-          "tied": false,
-          "boat": 2,
-          "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
-          "scores": {},
-          "total": null
-        },
-        {
-          "position": null,
-          "tied": false,
-          "boat": 3,
-          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
-          "scores": {},
-          "total": null
-        },
-        {
-          "position": null,
+          "position": 1,
           "tied": false,
           "boat": 4,
           "name": "Manuel Diniz / Sebastião Catanho",
-          "scores": {},
-          "total": null
+          "scores": {
+            "1": 1
+          },
+          "total": 1
         },
         {
-          "position": null,
+          "position": 2,
           "tied": false,
-          "boat": 5,
-          "name": "Arina Osypova / Joana Duarte",
-          "scores": {},
-          "total": null
+          "boat": 2,
+          "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+          "scores": {
+            "1": 2
+          },
+          "total": 2
         },
         {
-          "position": null,
+          "position": 3,
+          "tied": false,
+          "boat": 3,
+          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "scores": {
+            "1": 3
+          },
+          "total": 3
+        },
+        {
+          "position": 4,
           "tied": false,
           "boat": 6,
           "name": "Filipe Loureiro / Tiago Marcelino",
-          "scores": {},
-          "total": null
+          "scores": {
+            "1": 4
+          },
+          "total": 4
+        },
+        {
+          "position": 5,
+          "tied": false,
+          "boat": 1,
+          "name": "António Manuel Baio / José Luís Torres",
+          "scores": {
+            "1": 5
+          },
+          "total": 5
+        },
+        {
+          "position": 6,
+          "tied": false,
+          "boat": 5,
+          "name": "Arina Osypova / Joana Duarte",
+          "scores": {
+            "1": 6
+          },
+          "total": 6
         }
       ],
-      "note": "Composição e barcos publicados para a repescagem. Sem resultados registados."
+      "note": "R1 validada por print. R2 e R3 ainda sem resultados publicados."
     },
     "semifinais": {
       "status": "withheld",
