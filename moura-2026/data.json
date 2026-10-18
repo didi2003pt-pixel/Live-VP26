@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T10:56:00.000Z",
+    "syncedAt": "2026-10-18T11:14:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Tabela de semifinais validada; barcos corrigidos para 1,2,4,5,6"
+    "basis": "Print validado da Semifinal — R1 G1"
   },
   "maxRace": 6,
   "teams": [
@@ -2444,7 +2444,7 @@
       ]
     },
     "semifinais": {
-      "status": "ready",
+      "status": "in_progress",
       "title": "Semifinais",
       "groupCount": 3,
       "raceCountPerGroup": 4,
@@ -2481,47 +2481,101 @@
               "name": "Filipe Loureiro / Tiago Marcelino"
             }
           ],
-          "races": [],
+          "races": [
+            {
+              "race": 1,
+              "key": "SF-R1G1",
+              "finishOrder": [
+                2,
+                4,
+                5,
+                6,
+                1
+              ],
+              "results": [
+                {
+                  "position": 1,
+                  "boat": 2,
+                  "team": "Manuel Caetano Mariano / Rui Pedro",
+                  "points": 1
+                },
+                {
+                  "position": 2,
+                  "boat": 4,
+                  "team": "Manuel Champalimaud / António Barros",
+                  "points": 2
+                },
+                {
+                  "position": 3,
+                  "boat": 5,
+                  "team": "Vasco Soares / Matilde Boto",
+                  "points": 3
+                },
+                {
+                  "position": 4,
+                  "boat": 6,
+                  "team": "Filipe Loureiro / Tiago Marcelino",
+                  "points": 4
+                },
+                {
+                  "position": 5,
+                  "boat": 1,
+                  "team": "Mafalda Paquete / Tiago Rodrigues",
+                  "points": 5
+                }
+              ]
+            }
+          ],
           "standings": [
             {
-              "position": null,
-              "tied": false,
-              "boat": 1,
-              "name": "Mafalda Paquete / Tiago Rodrigues",
-              "scores": {},
-              "total": null
-            },
-            {
-              "position": null,
+              "position": 1,
               "tied": false,
               "boat": 2,
               "name": "Manuel Caetano Mariano / Rui Pedro",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 1
+              },
+              "total": 1
             },
             {
-              "position": null,
+              "position": 2,
               "tied": false,
               "boat": 4,
               "name": "Manuel Champalimaud / António Barros",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 2
+              },
+              "total": 2
             },
             {
-              "position": null,
+              "position": 3,
               "tied": false,
               "boat": 5,
               "name": "Vasco Soares / Matilde Boto",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 3
+              },
+              "total": 3
             },
             {
-              "position": null,
+              "position": 4,
               "tied": false,
               "boat": 6,
               "name": "Filipe Loureiro / Tiago Marcelino",
-              "scores": {},
-              "total": null
+              "scores": {
+                "1": 4
+              },
+              "total": 4
+            },
+            {
+              "position": 5,
+              "tied": false,
+              "boat": 1,
+              "name": "Mafalda Paquete / Tiago Rodrigues",
+              "scores": {
+                "1": 5
+              },
+              "total": 5
             }
           ]
         },
@@ -2660,7 +2714,7 @@
           ]
         }
       },
-      "note": "Composição/seeding publicada. Barcos corrigidos para a sequência 1, 2, 4, 5, 6 em todos os grupos. Sem resultados registados."
+      "note": "Semifinais em curso. R1 do Grupo 1 validada por print; restantes regatas ainda sem resultados publicados."
     },
     "final": {
       "status": "format_only",
