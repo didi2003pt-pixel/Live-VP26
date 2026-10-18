@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T10:47:00.000Z",
+    "syncedAt": "2026-10-18T10:50:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Decisão após protesto — Repescagem R3"
+    "basis": "Decisão após protesto — correção R3 da Repescagem"
   },
   "maxRace": 6,
   "teams": [
@@ -2319,10 +2319,11 @@
               "scoringAdjustment": "7 pontos após protesto"
             },
             {
-              "position": 3,
+              "position": 2,
               "boat": 4,
               "team": "Manuel Diniz / Sebastião Catanho",
-              "points": 3
+              "points": 2,
+              "scoringAdjustment": "2.º lugar na R3 após decisão de protesto"
             },
             {
               "position": 4,
@@ -2349,6 +2350,18 @@
         {
           "position": 1,
           "tied": false,
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "scores": {
+            "1": 1,
+            "2": 4,
+            "3": 2
+          },
+          "total": 7
+        },
+        {
+          "position": 2,
+          "tied": false,
           "boat": 2,
           "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
           "scores": {
@@ -2359,7 +2372,7 @@
           "total": 7
         },
         {
-          "position": 2,
+          "position": 3,
           "tied": false,
           "boat": 6,
           "name": "Filipe Loureiro / Tiago Marcelino",
@@ -2367,18 +2380,6 @@
             "1": 4,
             "2": 3,
             "3": 1
-          },
-          "total": 8
-        },
-        {
-          "position": 3,
-          "tied": false,
-          "boat": 4,
-          "name": "Manuel Diniz / Sebastião Catanho",
-          "scores": {
-            "1": 1,
-            "2": 4,
-            "3": 3
           },
           "total": 8
         },
@@ -2419,25 +2420,25 @@
           "total": 18
         }
       ],
-      "note": "Repescagem concluída após 3 regatas. R3 ajustada após protesto: Hugo Correia Hakenhut / Henrique Teodoro = 7 pontos.",
+      "note": "Repescagem concluída após 3 regatas. R3 ajustada após protesto: Manuel Diniz / Sebastião Catanho = 2.º (2 pontos); Hugo Correia Hakenhut / Henrique Teodoro = 7 pontos.",
       "closed": true,
       "qualified": [
         {
           "position": 1,
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "total": 7
+        },
+        {
+          "position": 2,
           "boat": 2,
           "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
           "total": 7
         },
         {
-          "position": 2,
+          "position": 3,
           "boat": 6,
           "name": "Filipe Loureiro / Tiago Marcelino",
-          "total": 8
-        },
-        {
-          "position": 3,
-          "boat": 4,
-          "name": "Manuel Diniz / Sebastião Catanho",
           "total": 8
         }
       ]
