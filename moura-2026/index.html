@@ -414,10 +414,38 @@ function repescagemView(){
     '<div class="legend">'+legend+'</div>';
 }
 
-function phasePlaceholder(view){
-  if(view==='semi'){
-    return '<div class="phase-card"><h3>Semifinais</h3><p><strong>Não publicado.</strong> A composição e o seeding das semifinais não serão mostrados nesta página até autorização da Comissão de Regatas.</p></div>';
+function semifinaisView(){
+  const phase=DATA.phases?.semifinais;
+  if(!phase || phase.status!=='ready'){
+    return '<div class="phase-card"><h3>Semifinais</h3><p>A aguardar publicação oficial da composição.</p></div>';
   }
+  const groupCards=[1,2,3].map(group=>{
+    const info=phase.groups?.[String(group)];
+    const rows=info?.standings||[];
+    const head=['Pos.','Equipa','Barco','R1','R2','R3','R4','Total'];
+    const body=rows.map(row=>'<tr>'+
+      '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
+      '<td class="team">'+esc(row.name)+'</td>'+
+      '<td>Barco '+(row.boat??'—')+'</td>'+
+      [1,2,3,4].map(r=>'<td>'+(row.scores?.[String(r)]??'—')+'</td>').join('')+
+      '<td class="total">'+(row.total??'—')+'</td>'+
+    '</tr>').join('');
+    const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
+      '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
+      '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
+      '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
+      '</div><div class="card-scores">'+[1,2,3,4].map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
+    return '<section style="margin-top:14px"><div class="section-head"><div><h2>Semifinal · Grupo '+group+'</h2><p>4 regatas · 2 melhores equipas avançam para a Final · sem descartes</p></div><div class="section-tag">Barcos 1 · 2 · 4 · 5 · 6</div></div>'+
+      '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
+      cards+'</section>';
+  }).join('');
+  return '<div class="section-head"><div><h2>Semifinais</h2><p>Composição oficial publicada. Resultados ainda não iniciados.</p></div><div class="section-tag">3 grupos</div></div>'+
+    '<div class="notice show">Os barcos foram corrigidos para a mesma sequência em todos os grupos: 1 · 2 · 4 · 5 · 6.</div>'+
+    groupCards+
+    '<div class="legend">Só serão publicados resultados das semifinais quando forem recebidos e validados. Os 2 primeiros de cada grupo avançam para a Final.</div>';
+}
+
+function phasePlaceholder(view){
   return '<div class="phase-card"><h3>Final</h3><p><strong>Formato preparado.</strong> A primeira equipa a atingir duas vitórias vence a prova. Os restantes resultados da fase são calculados por pontuação baixa, sem descartes. Os participantes só serão publicados quando estiverem oficialmente definidos.</p></div>';
 }
 
@@ -435,7 +463,11 @@ function render(){
     content.innerHTML=repescagemView();
     return;
   }
-  if(['semi','final'].includes(currentView)){
+  if(currentView==='semi'){
+    content.innerHTML=semifinaisView();
+    return;
+  }
+  if(currentView==='final'){
     content.innerHTML=phasePlaceholder(currentView);
     return;
   }
