@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T13:49:00.000Z",
+    "syncedAt": "2026-10-18T13:50:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Composição da Final fornecida e validada"
+    "basis": "Print validado da Final — R1 e R2; Final encerrada"
   },
   "maxRace": 6,
   "teams": [
@@ -3314,7 +3314,7 @@
       "note": "Semifinais concluídas nos três grupos."
     },
     "final": {
-      "status": "ready",
+      "status": "complete",
       "title": "Final",
       "raceCount": 7,
       "winTarget": 2,
@@ -3345,64 +3345,191 @@
           "name": "Mário Borges / Mafalda Neto"
         }
       ],
-      "races": [],
+      "races": [
+        {
+          "race": 1,
+          "key": "FINAL-R1",
+          "finishOrder": [
+            3,
+            5,
+            1,
+            2,
+            6,
+            4
+          ],
+          "results": [
+            {
+              "position": 1,
+              "boat": 3,
+              "team": "Matilde Caixinha / Carlota Varela",
+              "points": 1
+            },
+            {
+              "position": 2,
+              "boat": 5,
+              "team": "Carolina Campos / Ricardo Rosa",
+              "points": 2
+            },
+            {
+              "position": 3,
+              "boat": 1,
+              "team": "Vasco Soares / Matilde Boto",
+              "points": 3
+            },
+            {
+              "position": 4,
+              "boat": 2,
+              "team": "Manuel Champalimaud / António Barros",
+              "points": 4
+            },
+            {
+              "position": 5,
+              "boat": 6,
+              "team": "Mário Borges / Mafalda Neto",
+              "points": 5
+            },
+            {
+              "position": 6,
+              "boat": 4,
+              "team": "Manuel Diniz / Sebastião Catanho",
+              "points": 6
+            }
+          ]
+        },
+        {
+          "race": 2,
+          "key": "FINAL-R2",
+          "finishOrder": [
+            3,
+            6,
+            2,
+            1,
+            5,
+            4
+          ],
+          "results": [
+            {
+              "position": 1,
+              "boat": 3,
+              "team": "Matilde Caixinha / Carlota Varela",
+              "points": 1
+            },
+            {
+              "position": 2,
+              "boat": 6,
+              "team": "Mário Borges / Mafalda Neto",
+              "points": 2
+            },
+            {
+              "position": 3,
+              "boat": 2,
+              "team": "Manuel Champalimaud / António Barros",
+              "points": 3
+            },
+            {
+              "position": 4,
+              "boat": 1,
+              "team": "Vasco Soares / Matilde Boto",
+              "points": 4
+            },
+            {
+              "position": 5,
+              "boat": 5,
+              "team": "Carolina Campos / Ricardo Rosa",
+              "points": 5
+            },
+            {
+              "position": 6,
+              "boat": 4,
+              "team": "Manuel Diniz / Sebastião Catanho",
+              "points": 6
+            }
+          ]
+        }
+      ],
       "standings": [
         {
-          "position": null,
-          "tied": false,
-          "boat": 1,
-          "name": "Vasco Soares / Matilde Boto",
-          "scores": {},
-          "wins": 0,
-          "total": null
-        },
-        {
-          "position": null,
-          "tied": false,
-          "boat": 2,
-          "name": "Manuel Champalimaud / António Barros",
-          "scores": {},
-          "wins": 0,
-          "total": null
-        },
-        {
-          "position": null,
+          "position": 1,
           "tied": false,
           "boat": 3,
           "name": "Matilde Caixinha / Carlota Varela",
-          "scores": {},
-          "wins": 0,
-          "total": null
+          "scores": {
+            "1": 1,
+            "2": 1
+          },
+          "wins": 2,
+          "total": 2,
+          "champion": true
         },
         {
-          "position": null,
-          "tied": false,
-          "boat": 4,
-          "name": "Manuel Diniz / Sebastião Catanho",
-          "scores": {},
-          "wins": 0,
-          "total": null
-        },
-        {
-          "position": null,
-          "tied": false,
-          "boat": 5,
-          "name": "Carolina Campos / Ricardo Rosa",
-          "scores": {},
-          "wins": 0,
-          "total": null
-        },
-        {
-          "position": null,
+          "position": 2,
           "tied": false,
           "boat": 6,
           "name": "Mário Borges / Mafalda Neto",
-          "scores": {},
+          "scores": {
+            "1": 5,
+            "2": 2
+          },
           "wins": 0,
-          "total": null
+          "total": 7
+        },
+        {
+          "position": 3,
+          "tied": false,
+          "boat": 5,
+          "name": "Carolina Campos / Ricardo Rosa",
+          "scores": {
+            "1": 2,
+            "2": 5
+          },
+          "wins": 0,
+          "total": 7
+        },
+        {
+          "position": 4,
+          "tied": false,
+          "boat": 2,
+          "name": "Manuel Champalimaud / António Barros",
+          "scores": {
+            "1": 4,
+            "2": 3
+          },
+          "wins": 0,
+          "total": 7
+        },
+        {
+          "position": 5,
+          "tied": false,
+          "boat": 1,
+          "name": "Vasco Soares / Matilde Boto",
+          "scores": {
+            "1": 3,
+            "2": 4
+          },
+          "wins": 0,
+          "total": 7
+        },
+        {
+          "position": 6,
+          "tied": false,
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "scores": {
+            "1": 6,
+            "2": 6
+          },
+          "wins": 0,
+          "total": 12
         }
       ],
-      "note": "Composição da Final publicada. Sem resultados registados."
+      "note": "Final concluída após 2 regatas. Matilde Caixinha / Carlota Varela venceram R1 e R2 e atingiram 2 vitórias.",
+      "closed": true,
+      "winner": {
+        "boat": 3,
+        "name": "Matilde Caixinha / Carlota Varela",
+        "wins": 2,
+        "racesCompleted": 2
+      }
     }
   }
 }
