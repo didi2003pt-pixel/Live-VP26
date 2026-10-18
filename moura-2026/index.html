@@ -427,14 +427,14 @@ function semifinaisView(){
       '<td><span class="pos">'+ord(row.position,row.tied)+'</span></td>'+
       '<td class="team">'+esc(row.name)+'</td>'+
       '<td>Barco '+(row.boat??'—')+'</td>'+
-      [1,2,3,4].map(r=>'<td>'+(row.scores?.[String(r)]??'—')+'</td>').join('')+
+      [1,2,3,4].map(r=>'<td>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</td>').join('')+
       '<td class="total">'+(row.total??'—')+'</td>'+
     '</tr>').join('');
     const cards='<div class="mobile-list">'+rows.map(row=>'<article class="card"><div class="card-head">'+
       '<div class="card-pos">'+ord(row.position,row.tied)+'</div>'+
       '<div><div class="card-name">'+esc(row.name)+'</div><div class="card-sub">Barco '+(row.boat??'—')+'</div></div>'+
       '<div class="card-total"><small>Total</small><strong>'+(row.total??'—')+'</strong></div>'+
-      '</div><div class="card-scores">'+[1,2,3,4].map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
+      '</div><div class="card-scores">'+[1,2,3,4].map(r=>'<div class="card-score"><small>R'+r+'</small><strong>'+(row.scoreLabels?.[String(r)]??row.scores?.[String(r)]??'—')+'</strong></div>').join('')+'</div></article>').join('')+'</div>';
     return '<section style="margin-top:14px"><div class="section-head"><div><h2>Semifinal · Grupo '+group+'</h2><p>4 regatas · 2 melhores equipas avançam para a Final · sem descartes</p></div><div class="section-tag">Barcos 1 · 2 · 4 · 5 · 6</div></div>'+
       '<div class="table-wrap"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body+'</tbody></table></div>'+
       cards+'</section>';
