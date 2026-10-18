@@ -10,7 +10,7 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T10:17:00.000Z",
+    "syncedAt": "2026-10-18T10:27:00.000Z",
     "refreshMinutes": null,
     "manual": true,
     "basis": "Print validado da Repescagem"
@@ -2242,48 +2242,102 @@
               "points": 6
             }
           ]
+        },
+        {
+          "race": 2,
+          "key": "REP-R2",
+          "finishOrder": [
+            2,
+            6,
+            4,
+            3,
+            1,
+            5
+          ],
+          "results": [
+            {
+              "position": 1,
+              "boat": 2,
+              "team": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+              "points": 1
+            },
+            {
+              "position": 2,
+              "boat": 6,
+              "team": "Filipe Loureiro / Tiago Marcelino",
+              "points": 2
+            },
+            {
+              "position": 3,
+              "boat": 4,
+              "team": "Manuel Diniz / Sebastião Catanho",
+              "points": 3
+            },
+            {
+              "position": 4,
+              "boat": 3,
+              "team": "Hugo Correia Hakenhut / Henrique Teodoro",
+              "points": 4
+            },
+            {
+              "position": 5,
+              "boat": 1,
+              "team": "António Manuel Baio / José Luís Torres",
+              "points": 5
+            },
+            {
+              "position": 6,
+              "boat": 5,
+              "team": "Arina Osypova / Joana Duarte",
+              "points": 6
+            }
+          ]
         }
       ],
       "standings": [
         {
           "position": 1,
           "tied": false,
-          "boat": 4,
-          "name": "Manuel Diniz / Sebastião Catanho",
-          "scores": {
-            "1": 1
-          },
-          "total": 1
-        },
-        {
-          "position": 2,
-          "tied": false,
           "boat": 2,
           "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
           "scores": {
-            "1": 2
-          },
-          "total": 2
-        },
-        {
-          "position": 3,
-          "tied": false,
-          "boat": 3,
-          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
-          "scores": {
-            "1": 3
+            "1": 2,
+            "2": 1
           },
           "total": 3
         },
         {
-          "position": 4,
+          "position": 2,
+          "tied": false,
+          "boat": 4,
+          "name": "Manuel Diniz / Sebastião Catanho",
+          "scores": {
+            "1": 1,
+            "2": 3
+          },
+          "total": 4
+        },
+        {
+          "position": 3,
           "tied": false,
           "boat": 6,
           "name": "Filipe Loureiro / Tiago Marcelino",
           "scores": {
-            "1": 4
+            "1": 4,
+            "2": 2
           },
-          "total": 4
+          "total": 6
+        },
+        {
+          "position": 4,
+          "tied": false,
+          "boat": 3,
+          "name": "Hugo Correia Hakenhut / Henrique Teodoro",
+          "scores": {
+            "1": 3,
+            "2": 4
+          },
+          "total": 7
         },
         {
           "position": 5,
@@ -2291,9 +2345,10 @@
           "boat": 1,
           "name": "António Manuel Baio / José Luís Torres",
           "scores": {
-            "1": 5
+            "1": 5,
+            "2": 5
           },
-          "total": 5
+          "total": 10
         },
         {
           "position": 6,
@@ -2301,12 +2356,13 @@
           "boat": 5,
           "name": "Arina Osypova / Joana Duarte",
           "scores": {
-            "1": 6
+            "1": 6,
+            "2": 6
           },
-          "total": 6
+          "total": 12
         }
       ],
-      "note": "R1 validada por print. R2 e R3 ainda sem resultados publicados."
+      "note": "R1 e R2 validadas por print. R3 ainda sem resultado publicado."
     },
     "semifinais": {
       "status": "withheld",
