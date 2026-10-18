@@ -10,10 +10,10 @@
   "source": {
     "workbook": "Grupos 1 Moura.xlsx",
     "readOnly": true,
-    "syncedAt": "2026-10-18T10:50:00.000Z",
+    "syncedAt": "2026-10-18T10:56:00.000Z",
     "refreshMinutes": null,
     "manual": true,
-    "basis": "Decisão após protesto — correção R3 da Repescagem"
+    "basis": "Tabela de semifinais validada; barcos corrigidos para 1,2,4,5,6"
   },
   "maxRace": 6,
   "teams": [
@@ -2444,9 +2444,223 @@
       ]
     },
     "semifinais": {
-      "status": "withheld",
+      "status": "ready",
       "title": "Semifinais",
-      "note": "Composição/seeding não publicado nesta página até autorização da Comissão de Regatas."
+      "groupCount": 3,
+      "raceCountPerGroup": 4,
+      "advanceCountPerGroup": 2,
+      "scoring": "low_point_no_discards",
+      "boats": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "groups": {
+        "1": {
+          "entrants": [
+            {
+              "boat": 1,
+              "name": "Mafalda Paquete / Tiago Rodrigues"
+            },
+            {
+              "boat": 2,
+              "name": "Manuel Caetano Mariano / Rui Pedro"
+            },
+            {
+              "boat": 4,
+              "name": "Manuel Champalimaud / António Barros"
+            },
+            {
+              "boat": 5,
+              "name": "Vasco Soares / Matilde Boto"
+            },
+            {
+              "boat": 6,
+              "name": "Filipe Loureiro / Tiago Marcelino"
+            }
+          ],
+          "races": [],
+          "standings": [
+            {
+              "position": null,
+              "tied": false,
+              "boat": 1,
+              "name": "Mafalda Paquete / Tiago Rodrigues",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 2,
+              "name": "Manuel Caetano Mariano / Rui Pedro",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 4,
+              "name": "Manuel Champalimaud / António Barros",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 5,
+              "name": "Vasco Soares / Matilde Boto",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 6,
+              "name": "Filipe Loureiro / Tiago Marcelino",
+              "scores": {},
+              "total": null
+            }
+          ]
+        },
+        "2": {
+          "entrants": [
+            {
+              "boat": 1,
+              "name": "Manuel Diniz / Sebastião Catanho"
+            },
+            {
+              "boat": 2,
+              "name": "Matilde Caixinha / Carlota Varela"
+            },
+            {
+              "boat": 4,
+              "name": "Cristina Costa / Bárbara Simões"
+            },
+            {
+              "boat": 5,
+              "name": "João Ramada / Joana Dinis"
+            },
+            {
+              "boat": 6,
+              "name": "João Fonseca / João Teixeira"
+            }
+          ],
+          "races": [],
+          "standings": [
+            {
+              "position": null,
+              "tied": false,
+              "boat": 1,
+              "name": "Manuel Diniz / Sebastião Catanho",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 2,
+              "name": "Matilde Caixinha / Carlota Varela",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 4,
+              "name": "Cristina Costa / Bárbara Simões",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 5,
+              "name": "João Ramada / Joana Dinis",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 6,
+              "name": "João Fonseca / João Teixeira",
+              "scores": {},
+              "total": null
+            }
+          ]
+        },
+        "3": {
+          "entrants": [
+            {
+              "boat": 1,
+              "name": "Pedro Teixeira / Susana Maria"
+            },
+            {
+              "boat": 2,
+              "name": "Mário Drummond Borges / Mafalda Neto"
+            },
+            {
+              "boat": 4,
+              "name": "Carolina Campos / Ricardo Rosa"
+            },
+            {
+              "boat": 5,
+              "name": "Nuno Azevedo / Miguel Campos"
+            },
+            {
+              "boat": 6,
+              "name": "Clara Correia Hakenhut / Maria Correia Wakenhut"
+            }
+          ],
+          "races": [],
+          "standings": [
+            {
+              "position": null,
+              "tied": false,
+              "boat": 1,
+              "name": "Pedro Teixeira / Susana Maria",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 2,
+              "name": "Mário Drummond Borges / Mafalda Neto",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 4,
+              "name": "Carolina Campos / Ricardo Rosa",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 5,
+              "name": "Nuno Azevedo / Miguel Campos",
+              "scores": {},
+              "total": null
+            },
+            {
+              "position": null,
+              "tied": false,
+              "boat": 6,
+              "name": "Clara Correia Hakenhut / Maria Correia Wakenhut",
+              "scores": {},
+              "total": null
+            }
+          ]
+        }
+      },
+      "note": "Composição/seeding publicada. Barcos corrigidos para a sequência 1, 2, 4, 5, 6 em todos os grupos. Sem resultados registados."
     },
     "final": {
       "status": "format_only",
